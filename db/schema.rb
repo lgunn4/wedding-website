@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_032842) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_03_033733) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "line_2"
@@ -39,6 +39,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_032842) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["guest_id"], name: "index_song_requests_on_guest_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "remember_token"
+    t.datetime "remember_token_expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "addresses", "guests"

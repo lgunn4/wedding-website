@@ -25,4 +25,6 @@ SongRequest.create([
   { title: 'Song 4', artist: 'Artist 4', guest: guests[2] }
 ])
 
+User.create(email: 'admin@example.com', password: 'password', first_name: 'Admin', last_name: 'User')
+
 puts 'Seeds successfully created!'
