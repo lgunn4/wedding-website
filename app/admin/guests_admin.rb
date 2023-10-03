@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Trestle.resource(:guests) do
   menu do
-    item :guests, icon: "fa fa-star"
+    item :guests, icon: 'fa fa-star'
   end
 
   # Customize the table columns shown on the index view.
