@@ -18,4 +18,11 @@ Address.create([
   { street: '789 Pine St', line_2: 'Unit 12', city: 'Villageton', province: 'Stateville', postal_code: '54321', country: "Canada", guest: guests[2] }
 ])
 
+SongRequest.create([
+  { title: 'Song 1', artist: 'Artist 1', guest: guests[0] },
+  { title: 'Song 2', artist: 'Artist 2', guest: guests[0] },
+  { title: 'Song 3', artist: 'Artist 3', guest: guests[1] },
+  { title: 'Song 4', artist: 'Artist 4', guest: guests[2] }
+])
+
 puts 'Seeds successfully created!'
