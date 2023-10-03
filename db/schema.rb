@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_033733) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_03_034202) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "line_2"
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_033733) do
   create_table "song_requests", force: :cascade do |t|
     t.string "title"
     t.string "artist"
-    t.integer "guest_id", null: false
+    t.integer "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["guest_id"], name: "index_song_requests_on_guest_id"
