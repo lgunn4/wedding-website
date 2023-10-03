@@ -1,0 +1,9 @@
+.hero-custom {
+  background: url('header.jpg') top/cover no-repeat;
+  height: 80vh;
+  /* Adjust the height as needed */
+}
+
+.hero-body {
+  margin-top: 5vh;
+}
