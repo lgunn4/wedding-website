@@ -4,6 +4,30 @@
   /* Adjust the height as needed */
 }
 
-.hero-body {
-  margin-top: 5vh;
+.reverse-columns {
+  display: inline
+}
+
+.mobile-columns {
+  display: inline
+}
+
+@media (max-width: 1023px) {
+  .reverse-columns {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .mobile-columns {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.has-background-main {
+  background-color: var(--main-color);
+}
+
+.has-background-light {
+  background-color: var(--main-light-color);
 }

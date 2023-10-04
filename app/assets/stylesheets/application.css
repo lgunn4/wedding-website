@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --main-light-color: #D8D1D8;
+  --main-dark-color: #303818;
+  --main-color: #978F5F;
+  --main-highlight-color: #5D3B25;
+
+
+}
