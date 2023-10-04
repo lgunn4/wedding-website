@@ -1,0 +1,25 @@
+# Ignore Git and SVN files/directories
+.git*
+.svn*
+
+# Ignore editor/IDE files
+*.swp
+.vscode/
+.idea/
+
+# Ignore log and tmp directories
+log/
+
+# Ignore unnecessary Docker build context files
+.dockerignore
+Dockerfile.dev
+Dockerfile.prod
+
+# Ignore other unnecessary files/directories
+node_modules/
+*.log
+*.yml
+*.gem
+*.zip
+*.gz
+*.tar
