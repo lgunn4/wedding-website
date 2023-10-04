@@ -26,7 +26,8 @@ RUN chmod 777 -R tmp
 
 # Precompile assets
 RUN rake assets:precompile
-RUN rails db:generate
+RUN rails db:reset
+RUN rails db:migrate
 RUN rails db:seed
 
 # Expose the port that the Rails application will run on
