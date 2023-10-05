@@ -1,8 +1,3 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
-
-
 var countDownDate = new Date("Jun 14, 2025 15:00:00").getTime();
 
 // Update the count down every 1 second
@@ -21,21 +16,12 @@ var x = setInterval(function () {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("countdown-timer").innerHTML = days + " days " + hours + " hours "
-    + minutes + " minutes " + seconds + " seconds ";
+  document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown-timer").innerHTML = "We're Married!!";
+    document.getElementById("countdown-timer").innerHTML = "EXPIRED";
   }
 }, 1000);
-
-function scrollToRSVP() {
-  let e = document.getElementById("countdown-timer");
-  e.scrollIntoView({
-    block: 'start',
-    behavior: 'smooth',
-    inline: 'start'
-  });
-}

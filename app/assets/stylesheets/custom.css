@@ -31,3 +31,14 @@
 .has-background-light {
   background-color: var(--main-light-color);
 }
+
+.has-background-highlight {
+  background-color: var(--main-highlight-color);
+
+}
+
+.hero-venue {
+  background: url('https://lh3.googleusercontent.com/p/AF1QipPMNDR4CGOyUgWrGOzlOizO2ulpkvjmv1j5CfnU=s1360-w1360-h1020') center/cover no-repeat;
+  height: 50vh;
+  /* Adjust the height as needed */
+}
