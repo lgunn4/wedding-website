@@ -1,0 +1,81 @@
+<!-- app/views/guests/new.html.erb -->
+<%= form_with(model: guest, url: guests_path, method: :post, class: 'form') do |form| %>
+  <%= render 'shared/errors', object: guest %>
+  <!-- Guest Fields -->
+  <label class="label">Name(s) and Email</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <%= form.text_field :name, class: 'input' , placeholder: "e.g. Alex Smith and Mary Joe"%>
+      </div>
+      <div class="field">
+        <div class="control has-icons-left">
+          <%= form.email_field :email, class: 'input', placeholder: "Your email" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <label class="label">Number of Guests</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <%= form.number_field :number_of_guests, class: 'input', placeholder: "e.g. 1, 2..." %>
+      </div>
+    </div>
+  </div>
+  <!-- Address Fields -->
+  <label class="label">Address</label>
+  <%= form.fields_for :address do |address_fields| %>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= address_fields.text_field :street, class: 'input', placeholder:"Street address" %>
+        </div>
+        <div class="field">
+          <%= address_fields.text_field :line_2, class: 'input', placeholder:"Line 2" %>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= address_fields.text_field :city, class: 'input', placeholder: "City" %>
+        </div>
+        <div class="field">
+          <%= address_fields.text_field :province, class: 'input', placeholder: "Province" %>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= address_fields.text_field :postal_code, class: 'input', placeholder: "Postal Code" %>
+        </div>
+        <div class="field">
+          <%= address_fields.text_field :country, class: 'input', placeholder: "Country" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= form.fields_for :song_requests do |song_request_fields| %>
+    <label class="label">Song Request</label>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= song_request_fields.text_field :title, class: 'input', placeholder: "Song title" %>
+        </div>
+        <div class="field">
+          <%= song_request_fields.text_field :artist, class: 'input', placeholder: "Artist name" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="field is-grouped is-grouped-centered">
+    <p class="control">
+      <%= form.submit "Submit", class: 'button' %>
+    </p>
+  </div>
+<% end %>

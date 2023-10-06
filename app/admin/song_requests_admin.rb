@@ -2,7 +2,7 @@
 
 Trestle.resource(:song_requests) do
   menu do
-    item :song_requests, icon: 'fa fa-star'
+    item :song_requests, icon: 'fa fa-music'
   end
 
   # Customize the table columns shown on the index view.

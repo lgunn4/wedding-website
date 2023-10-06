@@ -21,8 +21,8 @@ var x = setInterval(function () {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("countdown-timer").innerHTML = days + " days " + hours + " hours "
-    + minutes + " minutes " + seconds + " seconds ";
+  document.getElementById("countdown-timer").innerHTML = "<strong>" + days + "</strong> days <strong>" + hours + "</strong> hours <strong>"
+    + minutes + "</strong> minutes <strong>" + seconds + "</strong> seconds ";
 
   // If the count down is finished, write some text
   if (distance < 0) {
@@ -32,10 +32,12 @@ var x = setInterval(function () {
 }, 1000);
 
 function scrollToRSVP() {
-  let e = document.getElementById("countdown-timer");
+  let e = document.getElementById("rsvp-form");
   e.scrollIntoView({
     block: 'start',
     behavior: 'smooth',
     inline: 'start'
   });
 }
+
+document.getElementById("rsvp-button").addEventListener("click", scrollToRSVP);
