@@ -1,11 +1,13 @@
+<%= render "shared/thank_you_modal" %>
 <section class="hero hero-custom is-bold"></section>
 <section class="section">
   <div class="container has-text-centered">
     <div class="block title is-1">Logan and Bri</div>
     <div class="block is-size-4">14.06.2025</div>
     <div class="block is-size-5">#ItHasJustBriGunn</div>
-    <div id="rsvp-button" class="block"><button
-        class="button">RSVP</button></div>
+    <div id="rsvp-button" class="block">
+      <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
+    </div>
   </div>
 </section>
 <section class="section has-text-centered">
@@ -65,9 +67,13 @@
     </div>
   </div>
 </section>
-<section class="section has-text-centered"><div
-    class="block is-size-4"
-    id="countdown-timer">Loading...</div>
+<section class="section has-text-centered">
+  <div class="block is-size-4" id="countdown-timer">
+    <%= content_tag(:div, "Loading...", data: {
+      controller: "countdown",
+      countdown_target: "countdown",
+    }) %>
+  </div>
 </section>
 <div class="section has-text-centered">
   <div class="block title is-2">The Venue</div>
@@ -107,4 +113,3 @@
   </div>
 </div>
 </section>
-<%= render 'shared/thank_you_modal' %>

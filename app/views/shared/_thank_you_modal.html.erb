@@ -1,10 +1,13 @@
-<div class="modal is-active">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <p class="title is-4">Thank You!</p>
-    <p>  <span class="icon has-text-success">
-        <i class="fas fa-check-square"></i>
-      </span> Your RSVP has been submitted successfully.</p>
+<div data-controller="modal" data-action="keydown.esc->modal#close">
+  <button class="button" data-action="modal#open">Open Modal</button>
+  <div data-modal-target="modal" class="modal" data-action="click->modal#clickOutside">
+    <div class="modal-background" data-modal-target="modalBackground"></div>
+    <div class="modal-content" >
+      <p class="title is-4">Thank You!</p>
+      <p>  <span class="icon has-text-success">
+          <i class="fas fa-check-square"></i>
+        </span> Your RSVP has been submitted successfully.</p>
+    </div>
+    <button data-action="modal#close" class="modal-close is-large" aria-label="close"></button>
   </div>
-  <button class="modal-close is-large" aria-label="close"></button>
 </div>

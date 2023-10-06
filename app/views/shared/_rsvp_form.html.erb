@@ -1,16 +1,16 @@
 <!-- app/views/guests/new.html.erb -->
-<%= form_with(model: guest, url: guests_path, method: :post, class: 'form') do |form| %>
+<%= form_with(model: @guest, url: guests_path, method: :post, class: 'form', data: { controller: 'guest', action: 'guest#submitForm' }) do |form| %>
   <%= render 'shared/errors', object: guest %>
   <!-- Guest Fields -->
   <label class="label">Name(s) and Email</label>
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <%= form.text_field :name, class: 'input' , placeholder: "e.g. Alex Smith and Mary Joe"%>
+        <%= form.text_field :name, class: 'input' , placeholder: "e.g. Alex Smith and Mary Joe", required: true%>
       </div>
       <div class="field">
         <div class="control has-icons-left">
-          <%= form.email_field :email, class: 'input', placeholder: "Your email" %>
+          <%= form.email_field :email, class: 'input', placeholder: "Your email", required: true %>
           <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
           </span>
@@ -22,7 +22,7 @@
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <%= form.number_field :number_of_guests, class: 'input', placeholder: "e.g. 1, 2..." %>
+        <%= form.number_field :number_of_guests, class: 'input', placeholder: "e.g. 1, 2...", required: true %>
       </div>
     </div>
   </div>
@@ -32,30 +32,30 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <%= address_fields.text_field :street, class: 'input', placeholder:"Street address" %>
+          <%= address_fields.text_field :street, class: 'input', placeholder:"Street address", required: true %>
         </div>
         <div class="field">
-          <%= address_fields.text_field :line_2, class: 'input', placeholder:"Line 2" %>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-body">
-        <div class="field">
-          <%= address_fields.text_field :city, class: 'input', placeholder: "City" %>
-        </div>
-        <div class="field">
-          <%= address_fields.text_field :province, class: 'input', placeholder: "Province" %>
+          <%= address_fields.text_field :line_2, class: 'input', placeholder:"Line 2", required: true %>
         </div>
       </div>
     </div>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <%= address_fields.text_field :postal_code, class: 'input', placeholder: "Postal Code" %>
+          <%= address_fields.text_field :city, class: 'input', placeholder: "City", required: true %>
         </div>
         <div class="field">
-          <%= address_fields.text_field :country, class: 'input', placeholder: "Country" %>
+          <%= address_fields.text_field :province, class: 'input', placeholder: "Province", required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= address_fields.text_field :postal_code, class: 'input', placeholder: "Postal Code", required: true %>
+        </div>
+        <div class="field">
+          <%= address_fields.text_field :country, class: 'input', placeholder: "Country", required: true %>
         </div>
       </div>
     </div>
@@ -65,10 +65,10 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <%= song_request_fields.text_field :title, class: 'input', placeholder: "Song title" %>
+          <%= song_request_fields.text_field :title, class: 'input', placeholder: "Song title", required: true %>
         </div>
         <div class="field">
-          <%= song_request_fields.text_field :artist, class: 'input', placeholder: "Artist name" %>
+          <%= song_request_fields.text_field :artist, class: 'input', placeholder: "Artist name", required: true %>
         </div>
       </div>
     </div>

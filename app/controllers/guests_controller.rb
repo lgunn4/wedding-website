@@ -2,11 +2,11 @@
 class GuestsController < ApplicationController
   def create
     @guest = Guest.new(guest_params)
-
+    
     if @guest.save
-      redirect_to root_path, notice: 'Thank you for your RSVP!'
+      render json: { success: true }
     else
-      render :home
+      render json: { success: false, errors: @guest.errors.full_messages }
     end
   end
 
