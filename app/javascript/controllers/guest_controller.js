@@ -24,13 +24,17 @@ export default class extends Controller {
     })
       .then(response => {
         if (response.ok) {
-          // Trigger the modal controller to open the modal
-          this.showThankYouSection();
-          this.fieldSetTarget.disabled = true;
-
+          return response.json();
         } else {
-          // Handle errors here if needed
           console.error("Form submission failed");
+        }
+      }).then(response => {
+        if (response.success) {
+          this.showThankYouSection();
+          this.hideErrors();
+          this.fieldSetTarget.disabled = true;
+        } else {
+          this.showErrors(response.errors);
         }
       })
       .catch(error => {
@@ -44,6 +48,27 @@ export default class extends Controller {
       thankYouSection.dispatchEvent(new Event("thank:show"));
     } else {
       console.error("thankYouSection element not found");
+    }
+  }
+
+  showErrors(errors) {
+    const errorMessageSection = document.querySelector('[data-controller="error"]');
+    if (errorMessageSection) {
+      errorMessageSection.dispatchEvent(new CustomEvent('error:show', {
+        detail: {
+          errors: errors,
+        },
+      }));
+    } else {
+      console.error("errorMessageSection element not found");
+    }
+  }
+  hideErrors() {
+    const errorMessageSection = document.querySelector('[data-controller="error"]');
+    if (errorMessageSection) {
+      errorMessageSection.dispatchEvent(new Event('error:hide'));
+    } else {
+      console.error("errorMessageSection element not found");
     }
   }
 }

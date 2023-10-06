@@ -7,6 +7,6 @@ class Guest < ApplicationRecord
   accepts_nested_attributes_for :song_requests, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :number_of_guests, presence: true, numericality: { only_integer: true, greater_than: 0 }
 end

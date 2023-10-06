@@ -1,7 +1,6 @@
 `<!-- app/views/guests/new.html.erb -->
 <%= form_with(model: @guest, url: guests_path, method: :post, class: 'form', data: { controller: 'guest', action: 'submitForm', target: 'guest.form' }) do |form| %>
   <fieldset data-guest-target="fieldSet" >
-    <%= render 'shared/errors', object: guest %>
     <!-- Guest Fields -->
     <label class="label">Name(s) and Email</label>
     <div class="field is-horizontal">

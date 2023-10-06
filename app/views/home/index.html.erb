@@ -67,7 +67,7 @@
   </div>
 </section>
 <section class="section has-text-centered">
-  <div class="block is-size-4" id="countdown-timer">
+  <div class="block is-size-4 is-size-5-mobile" id="countdown-timer">
     <%= content_tag(:div, "Loading...", data: {
       controller: "countdown",
       countdown_target: "countdown",
@@ -103,19 +103,11 @@
 </section>
 <section id="rsvp-form" class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-mobile">
+    <div class="columns">
       <div class="column is-three-fifths is-offset-one-fifth">
         <h1 class="title has-text-centered">RSVP</h1>
-        <div data-controller="thank" data-thank-target="thankYouSection" hidden>
-          <article class="message is-success">
-            <div class="message-header">
-              <p>RSVP Successful</p>
-            </div>
-            <div class="message-body">
-              <%= "Thank you #{@guest.name} for Rsvping! We look forward to spending our special night with you!" %>
-            </div>
-          </article>
-        </div>
+        <%= render 'shared/errors' %>
+        <%= render 'shared/thank_you_message' %>
         <%= render 'shared/rsvp_form', guest: @guest %>
       </div>
     </div>

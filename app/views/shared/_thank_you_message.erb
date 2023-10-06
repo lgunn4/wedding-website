@@ -1,0 +1,10 @@
+<div data-controller="thank" data-thank-target="thankYouSection" hidden>
+  <article class="message is-success">
+    <div class="message-header">
+      <p>RSVP Successful</p>
+    </div>
+    <div class="message-body">
+      <%= "Thank you <strong>#{@guest.name}</strong> for Rsvping! We look forward to spending our special night with you!".html_safe %>
+    </div>
+  </article>
+</div>
