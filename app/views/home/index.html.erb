@@ -1,4 +1,3 @@
-<%= render "shared/thank_you_modal" %>
 <section class="hero hero-custom is-bold"></section>
 <section class="section">
   <div class="container has-text-centered">
@@ -107,6 +106,16 @@
     <div class="columns is-mobile">
       <div class="column is-three-fifths is-offset-one-fifth">
         <h1 class="title has-text-centered">RSVP</h1>
+        <div data-controller="thank" data-thank-target="thankYouSection" hidden>
+          <article class="message is-success">
+            <div class="message-header">
+              <p>RSVP Successful</p>
+            </div>
+            <div class="message-body">
+              <%= "Thank you #{@guest.name} for Rsvping! We look forward to spending our special night with you!" %>
+            </div>
+          </article>
+        </div>
         <%= render 'shared/rsvp_form', guest: @guest %>
       </div>
     </div>
