@@ -21,6 +21,7 @@ module WeddingWebsite
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.hosts << "loganandbri.love"
+    config.hosts << 'loganandbri.love'
+    config.hosts << 'lgunn4-wedding-e58d8473198e.herokuapp.com'
   end
 end
