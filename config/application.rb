@@ -22,6 +22,5 @@ module WeddingWebsite
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.hosts << 'loganandbri.love'
-    config.hosts << 'lgunn4-wedding-e58d8473198e.herokuapp.com'
   end
 end
