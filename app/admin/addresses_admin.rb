@@ -2,7 +2,7 @@
 
 Trestle.resource(:addresses) do
   menu do
-    item :addresses, icon: 'fa fa-star'
+    item :addresses, icon: 'fa fa-home'
   end
 
   # Customize the table columns shown on the index view.

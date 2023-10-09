@@ -2,16 +2,20 @@
 
 Trestle.resource(:guests) do
   menu do
-    item :guests, icon: 'fa fa-star'
+    item :guests, icon: 'fa fa-user'
   end
 
   # Customize the table columns shown on the index view.
   #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+  table do
+    column :name
+    column :email
+    column :number_of_guests
+    column :address
+
+    column :created_at, align: :center
+    actions
+  end
 
   # Customize the form fields shown on the new/edit views.
   #

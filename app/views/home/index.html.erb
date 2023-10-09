@@ -1,0 +1,116 @@
+<section class="hero hero-custom is-bold"></section>
+<section class="section">
+  <div class="container has-text-centered">
+    <div class="block title is-1">Logan and Bri</div>
+    <div class="block is-size-4">14.06.2025</div>
+    <div class="block is-size-5">#ItHasJustBriGunn</div>
+    <div id="rsvp-button" class="block">
+      <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
+    </div>
+  </div>
+</section>
+<section class="section has-text-centered">
+  <div class="container is-max-desktop">
+    <div class="columns reverse-columns is-desktop is-vcentered">
+      <div
+        class="column is-three-quarters-tablet is-three-quarters-mobile is-half-desktop">
+        <div class="content is-normal">
+          <div class="block is-size-3 has-text-centered">Our Story</div>
+          <div class="block">We met in 2015 sitting beside eachother in math
+            class.</div>
+          <div class="block">We went through University together eventually
+            moving in together
+            in
+            2019.
+          </div>
+          <div class="block">We survived covid together and adopted our puppy
+            Nova.</div>
+          <div class="block">Then supporting eachother through the first years
+            of our careers
+            sharing interests and hobbies.
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="is-flex is-justify-content-center">
+          <div class="box">
+            <%= image_tag("story.jpg", width: 300)%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section has-text-centered">
+  <div class="container is-max-desktop">
+    <div class="columns mobile-columns is-desktop is-vcentered">
+      <div class="column">
+        <div class="is-flex is-justify-content-center">
+          <div class="box">
+            <%= image_tag("proposal.jpg", width: 300)%>
+          </div>
+        </div>
+      </div>
+      <div
+        class="column is-three-quarters-tablet is-three-quarters-mobile is-half-desktop">
+        <div class="content">
+          <div class="block is-size-3 has-text-centered">The Proposal</div>
+          <div class="block">It happened at a concert in Boulder Colorado.</div>
+          <div class="block">We went to see our favourite band Mt. Joy perform.</div>
+          <div class="block">When the started playing "bathroom light" I turned
+            to Bri and
+            asked.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section has-text-centered">
+  <div class="block is-size-4 is-size-5-mobile" id="countdown-timer">
+    <%= content_tag(:div, "Loading...", data: {
+      controller: "countdown",
+      countdown_target: "countdown",
+    }) %>
+  </div>
+</section>
+<div class="section has-text-centered">
+  <div class="block title is-2">The Venue</div>
+  <div class="block subtitle is-4">Knottingwood</div>
+</div>
+<section class="hero hero-venue is-bold"></section>
+<section class="section">
+  <div class="container  is-max-desktop">
+    <div class="section has-text-centered">
+      <div class="columns is-mobile">
+        <div class="column">
+          <div class="block subtitle is-3">Where</div>
+          <div class="block">Knottingwood</div>
+          <a
+            href="https://maps.apple.com/?address=9661%20Ivan%20Dr,%20Ilderton%20ON%20N0M%202A0,%20Canada&auid=10664115998874129347&ll=42.987132,-81.512187&lsp=9902&q=Knottingwood"><div
+              class="block">9661
+              Ivan Drive, N0M2A0, Ilderton</div>
+          </a>
+        </div>
+        <div class="column">
+          <div class="block subtitle is-3">When</div>
+          <div class="block">June 14 2025</div>
+          <div class="block">Ceremony starts at 3:00 pm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-three-fifths is-offset-one-fifth">
+        <h1 class="title has-text-centered">RSVP</h1>
+        <%= render 'shared/errors' %>
+        <%= render 'shared/thank_you_message' %>
+        <%= render 'shared/rsvp_form', guest: @guest %>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
