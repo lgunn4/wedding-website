@@ -16,18 +16,18 @@ guests = Guest.create([
 
 Address.create([
                  { street: '123 Main St', line_2: 'Apt 4', city: 'Cityville', province: 'Stateville', postal_code: '12345',
-                   country: 'Canada', guest: guests[0] },
+                   country: 'Canada', guest_id: guests[0].id },
                  { street: '456 Oak St', line_2: 'Suite 7', city: 'Townsville', province: 'Stateville', postal_code: '67890',
-                   country: 'Canada', guest: guests[1] },
+                   country: 'Canada', guest_id: guests[1].id },
                  { street: '789 Pine St', line_2: 'Unit 12', city: 'Villageton', province: 'Stateville', postal_code: '54321',
-                   country: 'Canada', guest: guests[2] }
+                   country: 'Canada', guest_id: guests[2].id }
                ])
 
 SongRequest.create([
-                     { title: 'Song 1', artist: 'Artist 1', guest: guests[0] },
-                     { title: 'Song 2', artist: 'Artist 2', guest: guests[0] },
-                     { title: 'Song 3', artist: 'Artist 3', guest: guests[1] },
-                     { title: 'Song 4', artist: 'Artist 4', guest: guests[2] }
+                     { title: 'Song 1', artist: 'Artist 1', guest_id: guests[0].id },
+                     { title: 'Song 2', artist: 'Artist 2', guest_id: guests[0].id },
+                     { title: 'Song 3', artist: 'Artist 3', guest_id: guests[1].id },
+                     { title: 'Song 4', artist: 'Artist 4', guest_id: guests[2].id }
                    ])
 
 User.create(email: 'admin@example.com', password: 'password', first_name: 'Admin', last_name: 'User')
