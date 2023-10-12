@@ -4,8 +4,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
 
     if @guest.save
-      render json: { success: true }
-      cookies[:guest_id] = @guest.id
+      render json: { success: true, guest_name: @guest.name }
     else
       render json: { success: false, errors: @guest.errors.full_messages }
     end

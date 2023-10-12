@@ -2,16 +2,16 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["thankYouSection"];
+  static targets = ["thankYouSection", "thankYouMessageBody"];
 
   connect() {
-    if (document.cookie) {
-      this.show();
-    }
     this.element.addEventListener("thank:show", this.show.bind(this));
   }
 
-  show() {
+  show(event) {
+    const guestName = event.detail.guest_name
+    const thankYouText = `Thank you <strong>${guestName}</strong> for Rsvping! We look forward to spending our special night with you!`
+    this.thankYouMessageBodyTarget.innerHTML = thankYouText;
     this.thankYouSectionTarget.hidden = false;
   }
 }

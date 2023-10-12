@@ -4,9 +4,6 @@ export default class extends Controller {
   static targets = ["form", "fieldSet"];
 
   connect() {
-    if (document.cookie) {
-      this.fieldSetTarget.disabled = true;
-    }
   }
 
   // Turbo Frames can be used to handle form submissions
@@ -30,7 +27,7 @@ export default class extends Controller {
         }
       }).then(response => {
         if (response.success) {
-          this.showThankYouSection();
+          this.showThankYouSection(response.guest_name);
           this.hideErrors();
           this.fieldSetTarget.disabled = true;
         } else {
@@ -42,10 +39,10 @@ export default class extends Controller {
       });
   }
 
-  showThankYouSection() {
+  showThankYouSection(guest_name) {
     const thankYouSection = document.querySelector('[data-controller="thank"]');
     if (thankYouSection) {
-      thankYouSection.dispatchEvent(new Event("thank:show"));
+      thankYouSection.dispatchEvent(new CustomEvent("thank:show", { detail: { guest_name: guest_name } }));
     } else {
       console.error("thankYouSection element not found");
     }

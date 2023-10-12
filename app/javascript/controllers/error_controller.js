@@ -7,11 +7,9 @@ export default class extends Controller {
   connect() {
     this.element.addEventListener("error:show", this.show.bind(this));
     this.element.addEventListener("error:hide", this.hide.bind(this));
-
   }
 
   show(event) {
-    debugger;
     this.errorMessageSectionTarget.hidden = false;
     this.errorMessageBodyTarget.innerHTML = event.detail.errors.join(", ");
   }
