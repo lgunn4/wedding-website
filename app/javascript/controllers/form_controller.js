@@ -81,10 +81,8 @@ export default class extends Controller {
     };
 
     const showFieldError = (fieldName, key, errors) => {
-      debugger;
       const target = this[`${fieldName}ErrorTarget`];
 
-      debugger;
       if (target) {
         target.innerHTML = errors;
       }

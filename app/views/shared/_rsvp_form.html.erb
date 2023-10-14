@@ -82,6 +82,20 @@
         </div>
       </div>
     <% end %>
+    <div class="block">
+      <button class="button is-primary is-rounded is-small is-light" data-action="click->song-request#addSongRequest">
+        <span class="icon is-small">
+          <i class="fas fa-add"></i>
+        </span>
+        <span>Add Song Request</span>
+      </button>
+      <button class="button is-danger is-rounded is-small is-light " data-action="click->song-request#removeSongRequest" disabled>
+        <span class="icon is-small">
+          <i class="fas fa-remove"></i>
+        </span>
+        <span>Remove Song Request</span>
+      </button>
+    </div>
     <div class="field is-grouped is-grouped-centered">
       <p class="control">
         <%= form.submit "Submit", class: 'button', data: { action: 'click->form#submitForm' } %>

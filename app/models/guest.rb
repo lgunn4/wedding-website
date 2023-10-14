@@ -9,4 +9,11 @@ class Guest < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :number_of_guests, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validate :at_least_one_song_request
+
+  private
+
+  def at_least_one_song_request
+    errors.add(:song_request, 'At least one song request is required') if song_requests.empty?
+  end
 end
