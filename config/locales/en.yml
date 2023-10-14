@@ -30,4 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      guest:
+        email: "E-mail address"
+        name: "Name"
+      address: 
+        street: "Street"
+        city: "City"
+        province: "Province"
+        postal_code: "Postal Code"
+        country: "Country"
+    errors:
+      messages: 
+        blank: "is required"
+      models:
+        guest:
+          attributes:
+            email:
+              invalid: "is not in a valid format"

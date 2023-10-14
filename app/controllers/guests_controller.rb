@@ -6,7 +6,11 @@ class GuestsController < ApplicationController
     if @guest.save
       render json: { success: true, guest_name: @guest.name }
     else
-      render json: { success: false, errors: @guest.errors.full_messages }
+      error_json = @guest.errors.errors.each_with_object({}) do |error, hash|
+        hash[error.attribute] = error.full_message
+      end
+
+      render json: { success: false, errors: @guest.errors.full_messages, error_json: }
     end
   end
 

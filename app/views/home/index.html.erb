@@ -106,8 +106,9 @@
     <div class="columns">
       <div class="column is-three-fifths is-offset-one-fifth">
         <h1 class="title has-text-centered">RSVP</h1>
-        <%= render 'shared/errors' %>
-        <%= render 'shared/thank_you_message' %>
+        <div class="block">
+          <%= render 'shared/thank_you_message' %>
+        </div>
         <%= render 'shared/rsvp_form', guest: @guest %>
       </div>
     </div>
