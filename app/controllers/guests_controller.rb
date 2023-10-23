@@ -1,5 +1,7 @@
 # app/controllers/guests_controller.rb
 class GuestsController < ApplicationController
+  before_action :check_for_lockup
+
   def create
     @guest = Guest.new(guest_params)
 
