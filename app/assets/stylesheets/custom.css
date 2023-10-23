@@ -1,5 +1,5 @@
 .hero-custom {
-  background: url('header.jpg') top/cover no-repeat;
+  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/v1698030385/header_rwtmsg.jpg') top/cover no-repeat;
   height: 80vh;
   /* Adjust the height as needed */
 }
@@ -38,7 +38,7 @@
 }
 
 .hero-venue {
-  background: url('https://lh3.googleusercontent.com/p/AF1QipPMNDR4CGOyUgWrGOzlOizO2ulpkvjmv1j5CfnU=s1360-w1360-h1020') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/v1698030609/2023-06-11_jykzxk.jpg') center/cover no-repeat;
   height: 50vh;
   /* Adjust the height as needed */
 }
