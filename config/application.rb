@@ -22,5 +22,7 @@ module WeddingWebsite
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.hosts << 'loganandbri.love'
+    config.hosts << 'localhost'
+    config.hosts << '127.0.0.1'
   end
 end
