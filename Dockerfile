@@ -5,10 +5,13 @@ FROM ruby:3.2.2
 WORKDIR /app
 
 # Set production mode
-# ENV SECRET_KEY_BASE 1
-# ENV RAILS_ENV production
-# ENV RAILS_SERVE_STATIC_FILES true
-# ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+
+# Fetch RAILS_MASTER_KEY from GitHub secret
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
 
 # Copy the Gemfile and Gemfile.lock to the container
 COPY Gemfile Gemfile.lock ./
@@ -26,9 +29,6 @@ RUN chmod 777 -R tmp
 
 # Precompile assets
 RUN rake assets:precompile
-RUN rails db:reset
-RUN rails db:migrate
-RUN rails db:seed
 
 # Expose the port that the Rails application will run on
 EXPOSE 3000
