@@ -1,7 +1,30 @@
 .hero-custom {
-  background: url('DSC_2657.jpg') top/cover no-repeat;
+  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/v1699808839/DSC_2657_l3jbm7.jpg') top/cover no-repeat;
   height: 80vh;
-  /* Adjust the height as needed */
+}
+
+@media screen and (max-width: 820px) {
+  .hero-custom {
+    /* Change the background position for mobile screens */
+    background-position: -100px;
+    ;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hero-custom {
+    /* Change the background position for mobile screens */
+    background-position: -175px;
+    ;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero-custom {
+    /* Change the background position for mobile screens */
+    background-position: -100px;
+    ;
+  }
 }
 
 .reverse-columns {
@@ -35,6 +58,11 @@
 .has-background-highlight {
   background-color: var(--main-highlight-color);
 
+}
+
+
+footer {
+  padding: 1rem !important;
 }
 
 .hero-venue {
