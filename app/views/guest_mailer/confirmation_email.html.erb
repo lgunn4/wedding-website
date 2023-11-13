@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .box img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bold;
+        font-family: "Snell Roundhand", cursive;
+        margin: 0;
+      }
+
+
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-container">
+        <div class="content">
+          <div class="hero">
+            <p>Thank you</p>
+          </div>
+          <div class="box">
+            <%= image_tag("https://res.cloudinary.com/ddtorekqd/image/upload/v1698961964/DSC_2791_kzjvho.jpg", width: 300)%>
+          </div>
+          <div class="content">
+            <p>Thank you for confirming your reservation for our wedding. We look so forward to celebrating our special day with you.</p>
+            <p>For event details keep posted on our <a href="https://loganandbri.love">site</a>.</p>
+            <p>Sincerely, Logan and Bri</p>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
