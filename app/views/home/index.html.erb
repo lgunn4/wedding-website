@@ -1,12 +1,20 @@
-<section class="hero hero-custom is-bold"></section>
+<section class="hero hero-custom"></section>
 <section class="section">
   <div class="container has-text-centered">
     <div class="block title is-1">Logan and Bri</div>
-    <div class="block is-size-4">14.06.2025</div>
+    <div class="block is-size-4">June 14, 2025</div>
     <div class="block is-size-5">#ItHasJustBriGunn</div>
     <div id="rsvp-button" class="block">
       <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
     </div>
+    <section class="section has-text-centered">
+  <div class="block is-size-4 is-size-5-mobile" id="countdown-timer">
+    <%= content_tag(:div, "Loading...", data: {
+      controller: "countdown",
+      countdown_target: "countdown",
+    }) %>
+  </div>
+</section>
   </div>
 </section>
 <section class="section has-text-centered">
@@ -16,18 +24,14 @@
         class="column is-three-quarters-tablet is-three-quarters-mobile is-half-desktop">
         <div class="content is-normal">
           <div class="block is-size-3 has-text-centered">Our Story</div>
-          <div class="block">We met in 2015 sitting beside eachother in math
-            class.</div>
-          <div class="block">We went through University together eventually
-            moving in together
-            in
-            2019.
+          <div class="block">We met in highschool where we sat beside eachother in math
+            class and went on our first date in December of 2015. We have been inseperable ever since. </div>
+          <div class="block"> Our relationship has been filled with adventures, taking us all over in the world. In our final years of university we moved in together
+            and adopted Nova, our little bundle of joy.
           </div>
-          <div class="block">We survived covid together and adopted our puppy
-            Nova.</div>
-          <div class="block">Then supporting eachother through the first years
-            of our careers
-            sharing interests and hobbies.
+          <div class="block"> We have been supporting each other through the first years of our careers, briefly moving to Kingston, and navigating adulthood.
+          </div>
+          <div class="block">So far, our life together has been filled with countless adventures, memories, and laughs and we are so excited for this thrilling new chapter of our lives to begin!
           </div>
         </div>
       </div>
@@ -55,29 +59,18 @@
         class="column is-three-quarters-tablet is-three-quarters-mobile is-half-desktop">
         <div class="content">
           <div class="block is-size-3 has-text-centered">The Proposal</div>
-          <div class="block">It happened at a concert in Boulder Colorado.</div>
-          <div class="block">We went to see our favourite band Mt. Joy perform.</div>
-          <div class="block">When the started playing "bathroom light" I turned
-            to Bri and
-            asked.
+          <div class="block">During August of 2023 we travelled to Denver, Colorado to see our favourite band, Mt. Joy, play at the red rocks amphitheatre in Boulder.</div>
+          <div class="block">Near the end of an incredible performance, when the song “Bathroom Light” started to play, I turned to Bri and got down on one knee to ask her to marry me.</div>
+          <div class="block">It was the first (and probably only) time Bri has ever been truly speechless. Thankfully, she said yes! 
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="section has-text-centered">
-  <div class="block is-size-4 is-size-5-mobile" id="countdown-timer">
-    <%= content_tag(:div, "Loading...", data: {
-      controller: "countdown",
-      countdown_target: "countdown",
-    }) %>
-  </div>
-</section>
-<div class="section has-text-centered">
-  <div class="block title is-2">The Venue</div>
-  <div class="block subtitle is-4">Knottingwood</div>
-</div>
+<section class="section has-text-centered"></section>
+
+
 <section class="hero hero-venue is-bold"></section>
 <section class="section">
   <div class="container  is-max-desktop">
@@ -85,17 +78,15 @@
       <div class="columns is-mobile">
         <div class="column">
           <div class="block subtitle is-3">Where</div>
-          <div class="block">Knottingwood</div>
-          <a
-            href="https://maps.apple.com/?address=9661%20Ivan%20Dr,%20Ilderton%20ON%20N0M%202A0,%20Canada&auid=10664115998874129347&ll=42.987132,-81.512187&lsp=9902&q=Knottingwood"><div
-              class="block">9661
-              Ivan Drive, N0M2A0, Ilderton</div>
-          </a>
+            <div class="block"><a href="https://maps.apple.com/?address=9661%20Ivan%20Dr,%20Ilderton%20ON%20N0M%202A0,%20Canada&auid=10664115998874129347&ll=42.987132,-81.512187&lsp=9902&q=Knottingwood">Knottingwood Events</a></div>
+       <div class="block">9661 Ivan Drive, N0M2A0, Ilderton.</div>
+       <div class="block">Bus transportation to and from the venue will be provided. Departing from Superstore Oxford St W.</div>
         </div>
         <div class="column">
           <div class="block subtitle is-3">When</div>
-          <div class="block">June 14 2025</div>
-          <div class="block">Ceremony starts at 3:00 pm</div>
+          <div class="block">June 14, 2025.</div>
+          <div class="block">Ceremony starts at 3:00 pm.</div>
+          <div class="block">We kindly ask for a device free ceremony.</div>
         </div>
       </div>
     </div>
@@ -115,3 +106,11 @@
   </div>
 </div>
 </section>
+
+<footer class="footer">
+  <div class="content has-text-right">
+    <p>
+      Designed and built by <a href="https://logangunn.com">Logan Gunn</a>
+    </p>
+  </div>
+</footer>

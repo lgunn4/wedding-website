@@ -10,7 +10,7 @@ export default class extends Controller {
 
   show(event) {
     const guestName = event.detail.guest_name
-    const thankYouText = `Thank you <strong>${guestName}</strong> for Rsvping! We look forward to spending our special night with you!`
+    const thankYouText = `Thank you <strong>${guestName}</strong>! We look forward to spending our special night with you! Look in your email inbox for a message from <strong>loganandbrigunn@gmail.com<strong>`
     this.thankYouMessageBodyTarget.innerHTML = thankYouText;
     this.thankYouSectionTarget.hidden = false;
   }
