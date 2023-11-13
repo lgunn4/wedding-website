@@ -7,9 +7,8 @@ class GuestsController < ApplicationController
 
   def create
     if @guest.save
-      GuestMailer.confirmation_email(@guest).deliver_now
-
       render json: { success: true, guest_name: @guest.name }
+      GuestMailer.confirmation_email(@guest).deliver_later
     else
       error_json = @guest.errors.errors.each_with_object({}) do |error, hash|
         hash[error.attribute] = error.full_message
