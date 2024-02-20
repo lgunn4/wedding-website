@@ -44,6 +44,10 @@
   .mobile-columns {
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .venue-columns .column:not(:last-child) {
+    padding: 0 0 3rem 0 ;
   }
 }
 
@@ -67,6 +71,5 @@ footer {
 
 .hero-venue {
   background: url('https://res.cloudinary.com/ddtorekqd/image/upload/v1698030609/2023-06-11_jykzxk.jpg') center/cover no-repeat;
-  height: 50vh;
-  /* Adjust the height as needed */
+  height: 60vh;
 }
