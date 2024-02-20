@@ -4,9 +4,13 @@
     <div class="block title is-1">Logan and Bri</div>
     <div class="block is-size-4">June 14, 2025</div>
     <div class="block is-size-5">#ItHasJustBriGunn</div>
+
+    <% if false %>
     <div id="rsvp-button" class="block">
       <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
     </div>
+    <% end %>
+    
     <section class="section has-text-centered">
   <div class="block is-size-4 is-size-5-mobile" id="countdown-timer">
     <%= content_tag(:div, "Loading...", data: {
@@ -76,25 +80,22 @@
   <div class="container is-max-desktop">
     <div class="section has-text-centered">
       <div class="columns mobile-columns venue-columns is-desktop is-centered">
-        <div class="column is-one-third is-two-thirds-mobile is-two-thirds-tablet">
+        <div class="column is-half is-two-thirds-mobile is-two-thirds-tablet">
           <div class="block subtitle is-3">Where</div>
             <div class="block"><a href="https://maps.apple.com/?address=9661%20Ivan%20Dr,%20Ilderton%20ON%20N0M%202A0,%20Canada&auid=10664115998874129347&ll=42.987132,-81.512187&lsp=9902&q=Knottingwood">Knottingwood Events</a></div>
        <div class="block">9661 Ivan Drive, N0M2A0, Ilderton.</div>
        <div class="block">Bus transportation to and from the venue will be provided. Departing from Superstore Oxford St W.</div>
         </div>
-        <div class="column is-one-third is-two-thirds-mobile is-two-thirds-tablet">
+        <div class="column is-half is-two-thirds-mobile is-two-thirds-tablet">
           <div class="block subtitle is-3">When</div>
           <div class="block">June 14, 2025.</div>
           <div class="block">Ceremony starts at 3:00 pm.</div>
           <div class="block">We kindly ask for a device free ceremony.</div>
         </div>
-        <div class="column is-one-third is-two-thirds-mobile is-two-thirds-tablet">
-          <div class="block subtitle is-3">What to bring</div>
-            <div class="block">Please bring cards only.</div>
-            <div class="block">Your dancing shoes.</div>
-            <div class="block">Your appetite for the delicious food and drinks.</div>
-        </div>
       </div>
+    </div>
+    <div class="section has-text-centered">
+      <div class="block subtitle is-5"><strong>Cards only please.</strong></div>
     </div>
   </div>
 </section>
