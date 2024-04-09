@@ -106,4 +106,6 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+  config.hosts << "loganandbri.love"
+  config.hosts << "10.0.0.50:9109"
 end
