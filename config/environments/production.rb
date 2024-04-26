@@ -107,6 +107,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.hosts << "loganandbri.love"
+  config.hosts << "backup.loganandbri.love"
   config.hosts << "10.0.0.50:9109"
   config.hosts << "192.53.121.67:3003"
 end
