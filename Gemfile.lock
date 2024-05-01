@@ -123,8 +123,6 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.3)
-    lockup (1.7)
-      rails (>= 3, < 7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -316,7 +314,6 @@ DEPENDENCIES
   htmlbeautifier
   importmap-rails
   jbuilder
-  lockup
   puma (~> 5.0)
   rails (~> 7.0.8)
   rubocop-rails

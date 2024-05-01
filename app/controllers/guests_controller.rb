@@ -2,7 +2,6 @@
 
 # app/controllers/guests_controller.rb
 class GuestsController < ApplicationController
-  before_action :check_for_lockup
   before_action :create_guest_from_input, only: [:create]
 
   def create
