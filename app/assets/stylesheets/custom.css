@@ -1,5 +1,5 @@
 .hero-custom {
-  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/v1699808839/DSC_2657_l3jbm7.jpg') top/cover no-repeat;
+  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/q_auto/f_auto/v1699808839/DSC_2657_l3jbm7.jpg?w=auto&h=auto') top/cover no-repeat;
   height: 80vh;
 }
 
@@ -70,6 +70,6 @@ footer {
 }
 
 .hero-venue {
-  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/v1698030609/2023-06-11_jykzxk.jpg') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/q_auto/f_auto/v1698030609/2023-06-11_jykzxk.jpg?w=auto&h=auto') center/cover no-repeat;
   height: 60vh;
 }
