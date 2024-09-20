@@ -101,21 +101,21 @@
   </div>
 </section>
 
-<% if false %>
-<section id="rsvp-form" class="section">
-  <div class="container is-max-desktop">
-    <div class="columns">
-      <div class="column is-three-fifths is-offset-one-fifth">
-        <h1 class="title has-text-centered">RSVP</h1>
-        <div class="block">
-          <%= render 'shared/thank_you_message' %>
-        </div>
-        <%= render 'shared/rsvp_form', guest: @guest %>
+<% if @debug_rsvp %>
+  <section id="rsvp-form" class="section">
+    <div class="container is-max-desktop">
+      <div class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth">
+          <h1 class="title has-text-centered">RSVP</h1>
+          <div class="block">
+            <%= render 'shared/thank_you_message' %>
+          </div>
+          <%= render 'shared/rsvp_form', guest: @guest %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 <% end %>
 
 <footer class="footer">
