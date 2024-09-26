@@ -136,11 +136,31 @@ footer {
   padding: 1rem !important;
 }
 
-.hero-venue {
-  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/q_auto/f_auto/v1698030609/2023-06-11_jykzxk.jpg?w=auto&h=auto') center/cover no-repeat;
-  height: 60vh;
+.hero-hands {
+  background: url('https://res.cloudinary.com/ddtorekqd/image/upload/q_auto/f_auto/v1727370680/DSC_2041_websize_nm37dv.jpg?w=auto&h=auto') center/cover no-repeat;
+  height: 80vh;
 }
 
-.cursive-text {
-  font-family: "Snell Roundhand", cursive;
+@media screen and (max-width: 820px) {
+  .hero-hands {
+    /* Change the background position for mobile screens */
+    background-position: -100px;
+    ;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hero-hands {
+    /* Change the background position for mobile screens */
+    background-position: -175px;
+    ;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero-hands {
+    /* Change the background position for mobile screens */
+    background-position: -100px;
+    ;
+  }
 }
