@@ -170,3 +170,27 @@ footer {
     ;
   }
 }
+
+/* Setting the fonts */
+.hero,
+.section,
+.footer {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+}
+
+.is-snell {
+  font-family: 'Snell Roundhand', cursive;
+  font-weight: 700;
+}
+
+.button {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-family: 'Snell Roundhand', cursive;
+  font-weight: 700;
+}
