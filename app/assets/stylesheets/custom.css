@@ -64,6 +64,12 @@
   z-index: -1;
 }
 
+.wildflower-repeat-card-background {
+  background-image: url('wildflower-repeat.png');
+  background-position: bottom left;
+  background-size: contain;
+}
+
 .hero-custom {
   background: url('https://res.cloudinary.com/ddtorekqd/image/upload/q_auto/f_auto/v1699808839/DSC_2657_l3jbm7.jpg?w=auto&h=auto') top/cover no-repeat;
   height: 80vh;
