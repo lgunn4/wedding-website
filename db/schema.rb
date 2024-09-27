@@ -20,14 +20,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_27_014617) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rsvp_id"
+    t.integer "rsvp_id", null: false
     t.index ["rsvp_id"], name: "index_addresses_on_rsvp_id"
   end
 
   create_table "guests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rsvp_id"
+    t.integer "rsvp_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.index ["rsvp_id"], name: "index_guests_on_rsvp_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_27_014617) do
     t.string "artist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rsvp_id"
+    t.integer "rsvp_id", null: false
     t.index ["rsvp_id"], name: "index_song_requests_on_rsvp_id"
   end
 

@@ -1,7 +1,7 @@
 <section id="rsvp-form" class="section">
   <div class="container is-max-desktop">
     <h1 class="title has-text-centered">RSVP</h1>
-    <%= form_with(model: @rsvp) do |form| %>
+    <%= form_with(url: "/rsvps", method: "post") do |form| %>
       <%= form.hidden_field :step, value: @step %>
       <fieldset data-form-target="fieldSet" >
         <!-- Guest Fields -->

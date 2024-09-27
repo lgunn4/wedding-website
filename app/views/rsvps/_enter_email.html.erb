@@ -5,11 +5,13 @@
       <%= form.hidden_field :step, value: @step %>
       <fieldset data-form-target="fieldSet" >
         <label class="label">Email</label>
-        <div class="control has-icons-left">
-          <%= form.email_field :email, class: 'input', placeholder: "Your email", required: true, data: {'form-target': 'email'}%>
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
+        <div class="field">
+          <div class="control has-icons-left">
+            <%= form.email_field :email, class: 'input', placeholder: "Your email", required: true, data: {'form-target': 'email'}%>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
         </div>
         <div class="field is-grouped is-grouped-centered">
           <p class="control">

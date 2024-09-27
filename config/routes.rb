@@ -2,5 +2,5 @@
 
 Rails.application.routes.draw do
   root 'home#index' 
-  resources :rsvps, only: [:new, :edit, :update]
+  resources :rsvps, only: [:new, :edit, :create, :update]
 end

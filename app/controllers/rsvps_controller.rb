@@ -5,14 +5,12 @@ class RsvpsController < ApplicationController
 
     def new
         @rsvp = Rsvp.new
-        @rsvp.save!
-
         @step = "enter_guests"
-        redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=#{@step}"
     end
 
     def create
         @rsvp = Rsvp.new
+        @rsvp.guests = create_guests_from_input
         @rsvp.save
 
         redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=enter_email"
@@ -41,11 +39,19 @@ class RsvpsController < ApplicationController
             @song_requests.update(rsvp: @rsvp)
             @song_requests.save!
 
+            send_confirmation_email
+
             redirect_to "/"
         end
     end
 
     private
+
+    def send_confirmation_email
+       return unless Rails.env.production?
+
+       RsvpMailer.confirmation_email(@rsvp).deliver_later
+    end
 
     def fetch_rsvp
         @rsvp = Rsvp.find_by_sqid(params[:id])
@@ -73,11 +79,11 @@ class RsvpsController < ApplicationController
     end
 
     def create_guests_from_input
-        @guest = Guest.new(guest_params)
+        @guest = [Guest.new(guest_params)]
     end
 
     def guest_params
-        params.require(:rsvp).permit(:first_name, :last_name)
+        params.permit(:first_name, :last_name)
     end
 
     def create_song_requests_from_input
