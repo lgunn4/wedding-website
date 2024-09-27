@@ -15,16 +15,18 @@ Trestle.resource(:guests) do
     actions
   end
 
-  # Customize the form fields shown on the new/edit views.
-  #
-  # form do |guest|
-  #   text_field :name
-  #
-  #   row do
-  #     col { datetime_field :updated_at }
-  #     col { datetime_field :created_at }
-  #   end
-  # end
+  
+  form do |guest|
+    row do 
+      col { text_field :first_name }
+      col { text_field :last_name }
+    end
+  
+    row do
+      col { datetime_field :updated_at }
+      col { datetime_field :created_at }
+    end
+  end
 
   # By default, all parameters passed to the update and create actions will be
   # permitted. If you do not have full trust in your users, you should explicitly

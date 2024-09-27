@@ -8,14 +8,14 @@ class RsvpsController < ApplicationController
         @rsvp.save!
 
         @step = "enter_guests"
-        redirect_to "/rsvps/#{@rsvp.id}/edit?step=#{@step}"
+        redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=#{@step}"
     end
 
     def create
         @rsvp = Rsvp.new
         @rsvp.save
 
-        redirect_to "/rsvps/#{@rsvp.id}/edit?step=enter_email"
+        redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=enter_email"
     end
 
     def update
@@ -24,17 +24,17 @@ class RsvpsController < ApplicationController
             @guests = create_guests_from_input
             @guests.update(rsvp: @rsvp)
             @guests.save!
-            redirect_to "/rsvps/#{@rsvp.id}/edit?step=enter_email"
+            redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=enter_email"
 
         when "enter_email"
             @rsvp.update(rsvp_params)
-            redirect_to "/rsvps/#{@rsvp.id}/edit?step=enter_contact_information"
+            redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=enter_contact_information"
 
         when "enter_contact_information"
             @address = create_address_from_input
             @address.update(rsvp: @rsvp)
             @address.save!
-            redirect_to "/rsvps/#{@rsvp.id}/edit?step=add_song_requests"
+            redirect_to "/rsvps/#{@rsvp.to_param}/edit?step=add_song_requests"
 
         when "add_song_requests"
             @song_requests = create_song_requests_from_input
@@ -48,7 +48,7 @@ class RsvpsController < ApplicationController
     private
 
     def fetch_rsvp
-        @rsvp = Rsvp.find(params["id"])
+        @rsvp = Rsvp.find_by_sqid(params[:id])
     end
 
     def fetch_step

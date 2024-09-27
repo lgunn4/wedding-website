@@ -1,3 +1,10 @@
+.button.floating-button {
+  position: fixed !important;
+  top: 10px !important;
+  left: 10px !important;
+  z-index: 1000;
+}
+
 .wildflower-bottom {
   position: relative;
   margin: 0;
