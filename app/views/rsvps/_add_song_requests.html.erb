@@ -1,0 +1,24 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <%= form_with(model: @rsvp) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <label class="label">Song Request</label>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= form.text_field :title, class: 'input', placeholder: "Song title", required: true %>
+          </div>
+          <div class="field">
+            <%= form.text_field :artist, class: 'input', placeholder: "Artist name", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <%= form.submit "Submit", class: 'button', data: { action: 'click->form#submitForm' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>

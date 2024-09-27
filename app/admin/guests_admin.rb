@@ -8,7 +8,8 @@ Trestle.resource(:guests) do
   # Customize the table columns shown on the index view.
   #
   table do
-    column :name
+    column :first_name
+    column :last_name
 
     column :created_at, align: :center
     actions

@@ -1,0 +1,10 @@
+<% case @step %>
+<% when "enter_guests" %>
+<%= render 'enter_guests', rsvp: @rsvp, step: @step %>
+<% when "enter_email" %>
+<%= render 'enter_email', rsvp: @rsvp, step: @step %>
+<% when "enter_contact_information" %>
+<%= render 'enter_contact_information', rsvp: @rsvp, step: @step %>
+<% when "add_song_requests" %>
+<%= render 'add_song_requests', rsvp: @rsvp %>
+<% end %>

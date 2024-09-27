@@ -4,5 +4,6 @@ class Guest < ApplicationRecord
   has_many :song_requests, dependent: :destroy
   has_one :address
 
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true 
 end

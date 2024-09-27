@@ -1,0 +1,52 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <%= form_with(model: @rsvp) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <label class="label">Address</label>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= form.text_field :street, class: 'input', placeholder:"Street address", required: true,  data: {'form-target': 'addressstreet'} %>
+            <p class="help is-danger" data-form-target='addressstreetError'></p>
+          </div>
+          <div class="field">
+            <%= form.text_field :line_2, class: 'input', placeholder:"Line 2", required: true,  data: {'form-target': 'addressline2'} %>
+            <p class="help is-danger" data-form-target='addressline2Error'></p>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= form.text_field :city, class: 'input', placeholder: "City", required: true,  data: {'form-target': 'addresscity'} %>
+            <p class="help is-danger" data-form-target='addresscityError'></p>
+          </div>
+          <div class="field">
+            <%= form.text_field :province, class: 'input', placeholder: "Province", required: true,  data: {'form-target': 'addressprovince'} %>
+            <p class="help is-danger" data-form-target='addressprovinceError'></p>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= form.text_field :postal_code, class: 'input', placeholder: "Postal Code", required: true,  data: {'form-target': 'addresspostalcode'} %>
+            <p class="help is-danger" data-form-target='addresspostalcodeError'></p>
+          </div>
+          <div class="field">
+            <%= form.text_field :country, class: 'input', placeholder: "Country", required: true,  data: {'form-target': 'addresscountry'} %>
+            <p class="help is-danger" data-form-target='addresscountryError'></p>
+          </div>
+        </div>
+      </div>
+      <fieldset data-form-target="fieldSet" >
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+            <%= form.submit "Next", class: 'button', data: { action: 'click->form#submitForm' } %>
+          </p>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</section>
