@@ -194,3 +194,21 @@ footer {
   font-family: 'Snell Roundhand', cursive;
   font-weight: 700;
 }
+
+.gallery-container {
+  column-count: 4;
+  column-gap: 1vh;
+}
+
+.gallery-item {
+  display: inline-block;
+  margin: 0 0 1vh;
+  width: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .gallery-container {
+    column-count: 2;
+    column-gap: 1vh;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="section">
+  <div class="gallery-container">
+    <% @images.each do |image_path| %>
+      <div class="gallery-item shadow-lg rounded">
+        <% image_name = File.basename(image_path) %>
+        <%= link_to image_tag(image_path, alt: "Wedding photo"), "/images/gallery/#{image_name}" %>
+      </div>
+    <% end %>
+  </div>
+</div>
