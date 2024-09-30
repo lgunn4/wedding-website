@@ -195,14 +195,13 @@ footer {
   font-weight: 700;
 }
 
-/* gallery.css */
-.image-container img {
+.gallery-container {
+  column-count: 5;
+  column-gap: 1em;
+}
+
+.gallery-item {
+  display: inline-block;
+  margin: 0 0 1em;
   width: 100%;
-  /* Make the image fill the container */
-  height: 100%;
-  /* Set the height to fill the container */
-  object-fit: cover;
-  /* Cover the container while maintaining aspect ratio */
-  object-position: center;
-  /* Center the image within the container */
 }

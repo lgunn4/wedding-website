@@ -1,13 +1,9 @@
-<section class="section">
-  <div class="container">
-    <div class="columns is-multiline">
-      <% @images.each do |image| %>
-        <div class="column is-one-quarter">
-          <figure class="image is-4by3 image-container">
-            <img src="<%= image %>" alt="Gallery image">
-          </figure>
-        </div>
-      <% end %>
-    </div>
+<div class="section">
+  <div class="gallery-container">
+    <% @images.shuffle.each do |image_path| %>
+      <div class="gallery-item shadow-lg rounded">
+        <%= link_to image_tag(image_path, alt: "Wedding photo") %>
+      </div>
+    <% end %>
   </div>
-</section>
+</div>

@@ -1,10 +1,17 @@
-version: '2'
 services:
-  web:
-    build: .
+  wedding-site:
+    image: logunn78/wedding-site:main
+    container-name: wedding-site-2
+    restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3003:3000"
     volumes:
-      - .:/app
-    environment:
-      - RAILS_ENV=production
+      - /home/Docker/wedding-site/production.sqlite3:/app/db/production.sqlite3
+      - /home/Docker/wedding-website/gallery:/app/public/images/gallery
+    networks: ["portainer-network"]
+
+networks: 
+  portainer:
+    name: 'portainer-network'
+    external: "true"
+    
