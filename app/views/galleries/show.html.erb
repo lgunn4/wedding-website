@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @images.each do |image| %>
+        <div class="column is-one-quarter">
+          <figure class="image is-4by3 image-container">
+            <img src="<%= image %>" alt="Gallery image">
+          </figure>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

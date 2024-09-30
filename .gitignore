@@ -35,3 +35,6 @@
 /config/master.key
 
 /sorbet/*
+
+
+/public/images/gallery
