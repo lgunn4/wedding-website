@@ -1,27 +1,37 @@
-# frozen_string_literal: true
-
-Trestle.resource(:guests) do
+Trestle.resource(:rsvps) do
   menu do
-    item :guests, icon: 'fa fa-user'
+    item :rsvps, icon: "fa fa-star"
   end
 
   # Customize the table columns shown on the index view.
   #
   table do
-    column :first_name
-    column :last_name
+    column :number_of_guests
+    column :email
+    column :address
 
     column :created_at, align: :center
     actions
   end
 
-  
-  form do |guest|
-    row do 
-      col { text_field :first_name }
-      col { text_field :last_name }
+  # Customize the form fields shown on the new/edit views.
+  #
+  form do |rsvp|
+    table rsvp.guests, admin: :guests do
+      column :id, align: :left
+      column :first_name, align: :left
+      column :last_name, align: :left
     end
-  
+
+
+    table rsvp.song_requests, admin: :song_requests do
+      column :id, align: :left
+      column :title, align: :left
+      column :artist, align: :left
+    end
+
+
+    text_field :email
     row do
       col { datetime_field :updated_at }
       col { datetime_field :created_at }
@@ -36,6 +46,6 @@ Trestle.resource(:guests) do
   #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
   #
   # params do |params|
-  #   params.require(:guest).permit(:name, ...)
+  #   params.require(:rsvp).permit(:name, ...)
   # end
 end

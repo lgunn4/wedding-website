@@ -1,35 +1,38 @@
 # frozen_string_literal: true
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# Clear existing data
+Address.delete_all
+Guest.delete_all
+SongRequest.delete_all
+Rsvp.delete_all
+User.delete_all
 
+# Create an RSVP record (since guests and song requests need it)
+rsvps = Rsvp.create([{email: 'rsvp@example.com'}, {email: 'rsvp2@example.com'}])
+
+# Create guests with rsvp_id
 guests = Guest.create([
-                        { name: 'John Doe', email: 'john@example.com', number_of_guests: 2 },
-                        { name: 'Jane Smith', email: 'jane@example.com', number_of_guests: 1 },
-                        { name: 'Bob Johnson', email: 'bob@example.com', number_of_guests: 4 }
-                      ])
+  { first_name: 'John', last_name: 'Doe', rsvp_id: rsvps[0].id },
+  { first_name: 'Jane', last_name: 'Smith', rsvp_id: rsvps[0].id },
+  { first_name: 'Bob', last_name: 'Johnson', rsvp_id: rsvps[1].id }
+])
 
+# Create addresses for guests with rsvp_id
 Address.create([
-                 { street: '123 Main St', line_2: 'Apt 4', city: 'Cityville', province: 'Stateville', postal_code: '12345',
-                   country: 'Canada', guest_id: guests[0].id },
-                 { street: '456 Oak St', line_2: 'Suite 7', city: 'Townsville', province: 'Stateville', postal_code: '67890',
-                   country: 'Canada', guest_id: guests[1].id },
-                 { street: '789 Pine St', line_2: 'Unit 12', city: 'Villageton', province: 'Stateville', postal_code: '54321',
-                   country: 'Canada', guest_id: guests[2].id }
-               ])
+  { street: '123 Main St', line_2: 'Apt 4', city: 'Cityville', province: 'Stateville', postal_code: '12345', country: 'Canada', rsvp_id: rsvps[0].id },
+  { street: '456 Oak St', line_2: 'Suite 7', city: 'Townsville', province: 'Stateville', postal_code: '67890', country: 'Canada', rsvp_id: rsvps[0].id },
+  { street: '789 Pine St', line_2: 'Unit 12', city: 'Villageton', province: 'Stateville', postal_code: '54321', country: 'Canada', rsvp_id: rsvps[1].id }
+])
 
+# Create song requests for guests with rsvp_id
 SongRequest.create([
-                     { title: 'Song 1', artist: 'Artist 1', guest_id: guests[0].id },
-                     { title: 'Song 2', artist: 'Artist 2', guest_id: guests[0].id },
-                     { title: 'Song 3', artist: 'Artist 3', guest_id: guests[1].id },
-                     { title: 'Song 4', artist: 'Artist 4', guest_id: guests[2].id }
-                   ])
+  { title: 'Song 1', artist: 'Artist 1', rsvp_id: rsvps[0].id },
+  { title: 'Song 2', artist: 'Artist 2', rsvp_id: rsvps[0].id },
+  { title: 'Song 3', artist: 'Artist 3', rsvp_id: rsvps[1].id },
+  { title: 'Song 4', artist: 'Artist 4', rsvp_id: rsvps[1].id }
+])
 
-User.create(email: 'admin@example.com', password: 'password', first_name: 'Admin', last_name: 'User')
+# Create a user
+User.create(email: 'admin@example.com', password_digest: BCrypt::Password.create('password'), first_name: 'Admin', last_name: 'User')
 
 Rails.logger.debug 'Seeds successfully created!'

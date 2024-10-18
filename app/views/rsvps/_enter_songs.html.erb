@@ -1,0 +1,69 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <%= form_with(model: @rsvp, data: { controller: "song-request" }) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <%= form.hidden_field :number_of_songs, value: 1, data: {'song-request-target': 'number' }%>
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <div class="block is-size-5">Enter your favourite songs to dance to (click + to add more and - to remove)</div>
+        </div>
+        <div class="column">
+          <div class="is-flex is-justify-content-flex-end">
+            <button type="button" data-action="song-request#addSong" class="button is-success mr-2">
+              <span class="icon">
+                <i class="fas fa-plus"></i>
+              </span>
+            </button>
+            <button type="button" data-action="song-request#removeSong" class="button is-danger">
+              <span class="icon">
+                <i class="fas fa-minus"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div data-song-request-target="songs" id="songs-container">
+          <% if @rsvp.song_requests.any? %>
+            <% @rsvp.song_requests.each_with_index do |song_request, index| %>
+              <div class="song-request-item">
+                <label class="label"><%= "Song #{index + 1}" %></label>
+                <div class="field is-horizontal">
+                  <div class="field-body">
+                    <div class="field">
+                      <input type="text" name="rsvp[<%= index %>][title]" class="input" placeholder="Song Title" value=<%= song_request.title %> required>
+                    </div>
+                    <div class="field">
+                      <input type="text" name="rsvp[<%= index %>][artist]" class="input" placeholder="Artist Name" value=<%= song_request.artist %> required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="song-request-item">
+              <label class="label">Song 1</label>
+              <div class="field is-horizontal">
+                <div class="field-body">
+                  <div class="field">
+                    <input type="text" name="rsvp[0][title]" class="input" placeholder="Song Title" required>
+                  </div>
+                  <div class="field">
+                    <input type="text" name="rsvp[0][artist]" class="input" placeholder="Artist Name" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- Song fields will be dynamically added here -->
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <%= form.submit "Done", class: 'button', data: { action: 'click->form#submitForm' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>

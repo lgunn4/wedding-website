@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Address < ApplicationRecord
-  belongs_to :guest
+  belongs_to :rsvp
 
   validates :street, presence: true
   validates :city, presence: true

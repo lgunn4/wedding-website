@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_034202) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_11_174400) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "line_2"
@@ -18,27 +18,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_034202) do
     t.string "province"
     t.string "postal_code"
     t.string "country"
-    t.integer "guest_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["guest_id"], name: "index_addresses_on_guest_id"
+    t.integer "rsvp_id", null: false
+    t.index ["rsvp_id"], name: "index_addresses_on_rsvp_id"
   end
 
   create_table "guests", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.integer "number_of_guests"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rsvp_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["rsvp_id"], name: "index_guests_on_rsvp_id"
+  end
+
+  create_table "rsvps", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "bus_required"
   end
 
   create_table "song_requests", force: :cascade do |t|
     t.string "title"
     t.string "artist"
-    t.integer "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["guest_id"], name: "index_song_requests_on_guest_id"
+    t.integer "rsvp_id", null: false
+    t.index ["rsvp_id"], name: "index_song_requests_on_rsvp_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_034202) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "addresses", "guests"
-  add_foreign_key "song_requests", "guests"
+  add_foreign_key "addresses", "rsvps"
+  add_foreign_key "guests", "rsvps"
+  add_foreign_key "song_requests", "rsvps"
 end
