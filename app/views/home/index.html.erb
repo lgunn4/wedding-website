@@ -1,10 +1,15 @@
-<section class="hero hero-custom "></section>
+<%= render 'shared/navbar' %>
+<section class="hero hero-custom" id="top"></section>
 <section class="section pb-0">
   <div class="container has-text-centered">
     <div class="block title is-1 ">Logan and Bri</div>
     <div class="block is-size-4">June 14, 2025</div>
     <div class="block is-size-5">#ItHasJustBriGunn</div>
-    <a href="https://van.loganandbri.love"><button class="button">🚐 Van Blog</button></a>
+    <% if @debug_rsvp %>
+      <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
+    <% else %>
+      <a href="https://van.loganandbri.love"><button class="button">🚐 Van Blog</button></a>
+    <% end %>
     <% if false %>
       <div id="rsvp-button" class="block">
         <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
@@ -20,7 +25,7 @@
     </section>
   </div>
 </section>
-<div class="wildflower-horizontal"></div>
+<div class="wildflower-horizontal" id="our-story"></div>
 <section class="section has-text-centered">
   <div class="container is-max-desktop">
     <div class="columns reverse-columns is-desktop is-vcentered">
@@ -74,7 +79,7 @@
 </section>
 <div class="wildflower-bottom"></div>
 <section class="hero hero-hands is-bold"></section>
-<section class="section wildflower-repeat py-6 px-6">
+<section class="section wildflower-repeat py-6 px-6" id="info">
   <div class="container is-max-desktop">
     <div class="box">
       <div class="section has-text-centered pb-6">
@@ -95,26 +100,13 @@
       </div>
       <div class="section has-text-centered pt-0">
         <div class="block is-size-4 has-text-centered is-snell"><strong>Cards only please.</strong></div>
+        <% if @debug_rsvp %>
+          <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
+        <% end %>
       </div>
     </div>
   </div>
 </section>
-<% if @debug_rsvp %>
-  <section id="rsvp-form" class="section">
-    <div class="container is-max-desktop">
-      <div class="columns">
-        <div class="column is-three-fifths is-offset-one-fifth">
-          <h1 class="title has-text-centered">RSVP</h1>
-          <div class="block">
-            <%= render 'shared/thank_you_message' %>
-          </div>
-          <%= render 'shared/rsvp_form', guest: @guest %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<% end %>
 <footer class="footer">
   <div class="content has-text-right">
     <p>
@@ -122,3 +114,17 @@
     </p>
   </div>
 </footer>
+<div id="rsvp-modal" class="modal <%= 'is-active' if @show_modal %>" data-controller="modal">
+  <div class="modal-background" data-action="click->modal#close"></div>
+  <div class="modal-content">
+    <div class="box">
+      <div class="section">
+        <div class="block title is-3 has-text-centered">Thank You!</div>
+        <div class="block text is-3" > We look forward to spending our special night with you! Look in your email inbox for a message from <strong>loganandbrigunn@gmail.com<strong></div>
+          </div>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" data-action="click->modal#close"></button>
+    </div>
+  </div>
+</div>

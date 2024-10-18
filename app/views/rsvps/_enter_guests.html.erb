@@ -1,0 +1,70 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <%= form_with(model: @rsvp, data: { controller: "guest-form" }) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <%= form.hidden_field :number_of_guests, value: @rsvp.guests.any? ? @rsvp.guests.count : 1, data: {'guest-form-target': 'number' } %>
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <div class="block is-size-5">Enter the names of each guest (click + to add more)</div>
+        </div>
+        <div class="column">
+          <div class="is-flex is-justify-content-flex-end">
+            <button type="button" data-action="guest-form#addGuest" class="button is-success mr-2">
+              <span class="icon">
+                <i class="fas fa-plus"></i>
+              </span>
+            </button>
+            <button type="button" data-action="guest-form#removeGuest" class="button is-danger">
+              <span class="icon">
+                <i class="fas fa-minus"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div data-guest-form-target="guests" id="guests-container">
+          <% if @rsvp.guests.any? %>
+            <% @rsvp.guests.each_with_index do |guest, index| %>
+              <div class="guest-form-item">
+                <label class="label">Guest <%= index + 1%></label>
+                <div class="field is-horizontal">
+                  <div class="field-body">
+                    <div class="field">
+                      <input type="text" name="rsvp[<%= index %>][first_name]" class="input" placeholder="First Name" value=<%= guest.first_name %> required>
+                    </div>
+                    <div class="field">
+                      <input type="text" name="rsvp[<%= index %>][last_name]" class="input" placeholder="Last Name" value=<%= guest.last_name %> required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="guest-form-item">
+              <label class="label">Guest 1</label>
+              <div class="field is-horizontal">
+                <div class="field-body">
+                  <div class="field">
+                    <input type="text" name="rsvp[0][first_name]" class="input" placeholder="First Name" required>
+                  </div>
+                  <div class="field">
+                    <input type="text" name="rsvp[0][last_name]" class="input" placeholder="Last Name" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- Guest fields will be dynamically added here -->
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <%= form.submit "Next", class: 'button', data: { action: 'click->form#submitForm' } %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+</section>

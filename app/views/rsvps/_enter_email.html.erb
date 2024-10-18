@@ -1,0 +1,22 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <%= form_with(model: @rsvp) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <div class="block is-size-5">Enter your email</div>
+      <div class="field">
+        <div class="control has-icons-left">
+          <%= form.email_field :email, class: 'input', placeholder: "example@example.com", required: true, data: {'form-target': 'email'}%>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <%= form.submit "Next", class: 'button', data: { action: 'click->form#submitForm' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>
