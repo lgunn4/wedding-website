@@ -1,0 +1,30 @@
+<nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation" data-controller="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item is-snell is-size-5 px-3" data-controller="scroll", data-action="scroll#top">
+      💍 Logan & Bri
+    </a>
+    <a role="button" class="navbar-burger px-3" aria-label="menu" aria-expanded="false" data-action="click->navbar#toggle">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu is-cormorant" data-navbar-target="menu">
+    <div class="navbar-start">
+      <a class="navbar-item" data-controller="scroll", data-action="scroll#ourStory">
+        Our Story
+      </a>
+      <a class="navbar-item" href="/gallery">
+        Gallery
+      </a>
+      <a class="navbar-item is-cormorant" data-controller="scroll", data-action="scroll#info">
+        Info
+      </a>
+      <% if @debug_rsvp %>
+        <a class="navbar-item" href="/rsvps/new">
+          RSVP
+        </a>
+      <% end %>
+    </div>
+  </div>
+</nav>
