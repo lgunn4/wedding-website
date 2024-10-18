@@ -1,11 +1,16 @@
 <%= render 'shared/navbar' %>
-<div class="section">
-  <div class="gallery-container">
-    <% @images.each do |image_path| %>
-      <div class="gallery-item shadow-lg rounded">
-        <% image_name = File.basename(image_path) %>
-        <%= link_to image_tag(image_path, alt: "Wedding photo"), "/images/gallery/#{image_name}" %>
-      </div>
-    <% end %>
+<div data-controller="image-loader">
+  <div id="loading" data-image-loader-target="loading" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="spinner"></div>
+  </div>
+  <div class="section" data-image-loader-target="section" style="display: none;">
+    <div class="gallery-container">
+      <% @images.each do |image_path| %>
+        <div class="gallery-item shadow-lg rounded">
+          <%= link_to image_tag(image_path, alt: "Wedding photo", data: { image_loader_target: "image" }), image_path %>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @images %>
   </div>
 </div>
