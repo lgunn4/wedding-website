@@ -4,4 +4,9 @@ class RsvpMailerPreview < ActionMailer::Preview
     @rsvp = Rsvp.last
     RsvpMailer.confirmation_email(@rsvp)
   end
+
+  def alert_email
+    @rsvp = Rsvp.last
+    RsvpMailer.alert_email(@rsvp)
+  end
 end

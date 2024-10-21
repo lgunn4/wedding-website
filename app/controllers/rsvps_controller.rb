@@ -52,7 +52,8 @@ class RsvpsController < ApplicationController
     end
 
     def last_step
-        send_confirmation_email
+        RsvpMailer.confirmation_email(@rsvp).deliver_later
+        RsvpMailer.alert_email(@rsvp).deliver_later
         session[:show_modal] = true
         redirect_to "/"
     end
@@ -68,12 +69,6 @@ class RsvpsController < ApplicationController
         return nil if index == STEPS.count - 1
 
         return STEPS[index + 1]
-    end
-
-    def send_confirmation_email
-       return unless Rails.env.production?
-
-       RsvpMailer.confirmation_email(@rsvp).deliver_later
     end
 
     def fetch_rsvp
