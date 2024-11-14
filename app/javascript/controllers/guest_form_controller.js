@@ -21,8 +21,16 @@ export default class extends Controller {
                         </div>
                     </div>
                 </div>
+                <div class="field">
+                    <label class="checkbox">
+                        <input type="checkbox" data-action="change->guest-form#toggleDietary" data-guest-form-target="dietaryCheckbox">
+                        Dietary Restrictions?
+                    </label>
+                    <textarea class="textarea is-hidden" data-guest-form-target="dietaryText" name="rsvp[${newGuestIndex}][dietary_restrictions]" placeholder="Describe dietary restrictions" style="display: none;"></textarea>
+                </div>
             </div>
         `;
+
         this.guestsTarget.insertAdjacentHTML('beforeend', newFieldHTML);
         this.numberTarget.value = newGuestIndex + 1
     }
@@ -35,6 +43,22 @@ export default class extends Controller {
         }
         const newGuestCount = this.guestsTarget.children.length;
         this.numberTarget.value = newGuestCount;
+    }
+
+    toggleDietary(event) {
+        console.log("CLICKED!")
+        console.log(event.target)
+        const checkbox = event.target;
+        const guestItem = checkbox.closest('.guest-form-item');
+        const textarea = guestItem.querySelector('textarea');
+
+        console.log(checkbox.checked)
+        console.log(textarea)
+        if (checkbox.checked) {
+            textarea.style.display = 'block';
+        } else {
+            textarea.style.display = 'none';
+        }
     }
 }
 

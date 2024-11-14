@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_11_174400) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_22_161129) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "line_2"
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_11_174400) do
     t.integer "rsvp_id", null: false
     t.string "first_name"
     t.string "last_name"
+    t.text "dietary_restriction"
     t.index ["rsvp_id"], name: "index_guests_on_rsvp_id"
   end
 

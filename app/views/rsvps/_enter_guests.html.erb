@@ -54,6 +54,13 @@
                   </div>
                 </div>
               </div>
+              <div class="field">
+                <label class="checkbox">
+                  <input type="checkbox" data-action="change->guest-form#toggleDietary" data-guest-form-target="dietaryCheckbox">
+                  Dietary Restrictions?
+                </label>
+                <textarea class="textarea is-hidden" data-guest-form-target="dietaryText" name="rsvp[${newGuestIndex}][dietary_restrictions]" placeholder="Describe dietary restrictions"></textarea>
+              </div>
             </div>
           <% end %>
         </div>
