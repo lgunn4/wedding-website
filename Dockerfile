@@ -27,6 +27,12 @@ COPY . .
 RUN mkdir tmp && mkdir tmp/pids && mkdir tmp/sockets && mkdir tmp/cache
 RUN chmod 777 -R tmp
 
+# Copy the entrypoint script into the container
+COPY entrypoint.sh /usr/local/bin/
+
+# Set the entrypointz
+ENTRYPOINT ["entrypoint.sh"]
+
 # Precompile assets
 RUN rake assets:precompile
 
