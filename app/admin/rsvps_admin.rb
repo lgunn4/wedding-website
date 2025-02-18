@@ -8,7 +8,6 @@ Trestle.resource(:rsvps) do
   table do
     column :number_of_guests
     column :email
-    column :address
 
     column :created_at, align: :center
     actions
