@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_11_174400) do
-  create_table "addresses", force: :cascade do |t|
-    t.string "street"
-    t.string "line_2"
-    t.string "city"
-    t.string "province"
-    t.string "postal_code"
-    t.string "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "rsvp_id", null: false
-    t.index ["rsvp_id"], name: "index_addresses_on_rsvp_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2025_02_18_153922) do
   create_table "guests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_11_174400) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "addresses", "rsvps"
   add_foreign_key "guests", "rsvps"
   add_foreign_key "song_requests", "rsvps"
 end

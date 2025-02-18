@@ -35,12 +35,6 @@ en:
       guest:
         email: "E-mail address"
         name: "Name"
-      address: 
-        street: "Street"
-        city: "City"
-        province: "Province"
-        postal_code: "Postal Code"
-        country: "Country"
     errors:
       messages: 
         blank: "is required"

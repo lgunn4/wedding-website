@@ -6,7 +6,6 @@ class RsvpsController < ApplicationController
     STEPS = [
         "enter_email", 
         "enter_guests", 
-        "enter_address", 
         "enter_bus_info",
         "enter_songs"
     ]
@@ -28,11 +27,6 @@ class RsvpsController < ApplicationController
 
         when "enter_email"
             @rsvp.update(email_params)
-
-        when "enter_address"
-            @address = create_address_from_input
-            @address.update(rsvp: @rsvp)
-            @address.save!
         
         when "enter_bus_info"
             @rsvp.update(bus_info_params)
@@ -87,14 +81,6 @@ class RsvpsController < ApplicationController
 
     def bus_info_params
         params.require(:rsvp).permit(:bus_required)  
-    end
-
-    def create_address_from_input
-        @address = Address.new(address_params)
-    end
-
-    def address_params
-        params.require(:rsvp).permit(:street, :line_2, :city, :province, :postal_code, :country)
     end
 
     def create_guests_from_input
