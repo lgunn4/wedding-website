@@ -48,10 +48,6 @@ COPY --from=builder /app /app
 # Copy the entrypoint script into the container
 COPY entrypoint.sh /usr/local/bin/
 
-# Create tmp directories
-RUN mkdir tmp && mkdir tmp/pids && mkdir tmp/sockets && mkdir tmp/cache \
-    && chmod 777 -R tmp
-
 # Set the entrypoint
 ENTRYPOINT ["entrypoint.sh"]
 
