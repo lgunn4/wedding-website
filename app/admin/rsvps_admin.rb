@@ -1,11 +1,13 @@
 Trestle.resource(:rsvps) do
   menu do
-    item :rsvps, icon: "fa fa-star"
+    item :rsvps, icon: "fa fa-star", priority: :first 
+    
   end
 
   # Customize the table columns shown on the index view.
   #
   table do
+    column :gid, ->(rsvp) { rsvp.to_param }
     column :number_of_guests
     column :email
 
@@ -16,17 +18,20 @@ Trestle.resource(:rsvps) do
   # Customize the form fields shown on the new/edit views.
   #
   form do |rsvp|
-    table rsvp.guests, admin: :guests do
-      column :id, align: :left
-      column :first_name, align: :left
-      column :last_name, align: :left
+
+    table [rsvp] do
+      column :edit_url, ->(rsvp) { "https://loganandbri.love/rsvps/#{rsvp.to_param}/edit?step=enter_email" }
+    end
+
+    table rsvp.guests, header: "Guests", admin: :guests do
+      column :first_name
+      column :last_name
     end
 
 
-    table rsvp.song_requests, admin: :song_requests do
-      column :id, align: :left
-      column :title, align: :left
-      column :artist, align: :left
+    table rsvp.song_requests, header: "Song Requests", admin: :song_requests do
+      column :title 
+      column :artist
     end
 
 
