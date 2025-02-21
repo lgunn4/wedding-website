@@ -8,7 +8,7 @@ class RsvpMailer < ApplicationMailer
 
   def alert_email(rsvp)
     @rsvp = rsvp
-    @number_of_guests = Guest.all.count
+    @number_of_guests = Rsvp.completed_guests.count
     mail(to: User.all.map(&:email), subject: 'A new RSVP has been submitted')
   end
 end
