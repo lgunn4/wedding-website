@@ -1,4 +1,6 @@
 class GalleryController < ApplicationController
+  layout 'styled'
+
   def index
     all_images = Dir.glob("public/images/gallery/*").map do |file|
       file.sub('public', '')
