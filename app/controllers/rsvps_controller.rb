@@ -46,6 +46,7 @@ class RsvpsController < ApplicationController
     end
 
     def last_step
+        @rsvp.complete!
         RsvpMailer.confirmation_email(@rsvp).deliver_later
         RsvpMailer.alert_email(@rsvp).deliver_later
         session[:show_modal] = true

@@ -8,5 +8,9 @@ class Rsvp < ApplicationRecord
     def number_of_guests 
         self.guests.count
     end
+
+    def complete!
+        update!(complete: true)
+    end
 end
   
