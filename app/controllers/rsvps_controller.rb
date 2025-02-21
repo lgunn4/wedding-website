@@ -47,9 +47,12 @@ class RsvpsController < ApplicationController
     end
 
     def last_step
-        @rsvp.complete!
-        RsvpMailer.confirmation_email(@rsvp).deliver_later
-        RsvpMailer.alert_email(@rsvp).deliver_later
+        unless @rsvp.complete?
+            @rsvp.complete!
+            RsvpMailer.confirmation_email(@rsvp).deliver_later
+            RsvpMailer.alert_email(@rsvp).deliver_later
+        end
+        
         session[:show_modal] = true
         redirect_to "/"
     end

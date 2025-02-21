@@ -5,5 +5,10 @@ module Admin
     def show
       @rsvp = Rsvp.find(params[:id])
     end
+
+    def destroy
+      Rsvp.find(params[:id]).destroy!
+      redirect_to admin_path
+    end
   end
 end

@@ -1,7 +1,14 @@
 <h1>RSVP Details</h1>
 <br/>
 
-<%= link_to 'Edit RSVP', "#{request.base_url}/rsvps/#{@rsvp.to_param}/edit?step=enter_email" %>
+<%= form_with url: "#" do %>
+  <%= button_tag 'Edit RSVP', type: 'button', onclick: "window.location='#{request.base_url}/rsvps/#{@rsvp.to_param}/edit?step=enter_email'" %>
+<% end %>
+
+<br/>
+<%= form_with(url: admin_rsvp_path(@rsvp.id), method: :delete, data: { confirm: 'Are you sure you want to remove this RSVP?' }) do %>
+  <%= submit_tag 'Remove RSVP', class: 'remove-button' %>
+<% end %>
 
 <br/>
 <br/>
