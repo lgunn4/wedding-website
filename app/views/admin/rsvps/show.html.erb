@@ -1,0 +1,53 @@
+<h1>RSVP Details</h1>
+<br/>
+
+<%= link_to 'Edit RSVP', "#{request.base_url}/rsvps/#{@rsvp.to_param}/edit?step=enter_email" %>
+
+<br/>
+<br/>
+
+<p><strong>ID:</strong> <%= @rsvp.id %></p>
+<p><strong>Email:</strong> <%= @rsvp.email %></p>
+<p><strong>Bus Required:</strong> <%= @rsvp.bus_required ? 'Yes' : 'No' %></p>
+<p><strong>Complete:</strong> <%= @rsvp.complete? ? '✅' : '❌' %></p>
+<p><strong>Created At:</strong> <%= @rsvp.created_at.strftime("%B %d, %Y %H:%M") %></p>
+
+<br/>
+<h2>Guests</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rsvp.guests.each do |guest| %>
+      <tr>
+        <td><%= guest.first_name %></td>
+        <td><%= guest.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+<h2>Song Requests</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rsvp.song_requests.each do |song_request| %>
+      <tr>
+        <td><%= song_request.title %></td>
+        <td><%= song_request.artist %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
