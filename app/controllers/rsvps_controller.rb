@@ -1,4 +1,5 @@
 class RsvpsController < ApplicationController
+    layout 'styled'
     before_action :fetch_step, only: [:edit, :update]
     before_action :fetch_rsvp, only: [:new, :create, :edit, :update]
     before_action :set_first_step
