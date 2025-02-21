@@ -59,6 +59,7 @@ gem "font-awesome-sass", "~> 6.4.2"
 gem 'htmlbeautifier'
 gem 'sqids'
 gem 'kaminari'
+gem 'devise'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
