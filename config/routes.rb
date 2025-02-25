@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, skip: [:registrations]
+  devise_for :users, skip: [:registrations, :passwords]
 
   root 'home#index' 
   resources :gallery, only: [:index]
