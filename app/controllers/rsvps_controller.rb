@@ -6,7 +6,8 @@ class RsvpsController < ApplicationController
 
     STEPS = [
         "enter_email", 
-        "enter_guests", 
+        "enter_guests",
+        "attending_confirmation",
         "enter_bus_info",
         "enter_songs"
     ]
@@ -29,6 +30,10 @@ class RsvpsController < ApplicationController
         when "enter_email"
             @rsvp.update(email_params)
         
+        when "attending_confirmation"
+            @rsvp.update(attending_confirmation_params)
+
+            return redirect_to_not_attending unless @rsvp.attending? 
         when "enter_bus_info"
             @rsvp.update(bus_info_params)
 
@@ -46,6 +51,17 @@ class RsvpsController < ApplicationController
         @first_step = STEPS.find_index(@step) == 1
     end
 
+    def redirect_to_not_attending
+        unless @rsvp.complete?
+            @rsvp.complete!
+        end
+
+        session[:show_modal] = true
+        session[:attending] = false
+
+        redirect_to "/"
+    end
+
     def last_step
         unless @rsvp.complete?
             @rsvp.complete!
@@ -54,6 +70,8 @@ class RsvpsController < ApplicationController
         end
         
         session[:show_modal] = true
+        session[:attending] = true
+
         redirect_to "/"
     end
 
@@ -82,6 +100,10 @@ class RsvpsController < ApplicationController
 
     def email_params
         params.require(:rsvp).permit(:email)  
+    end
+
+    def attending_confirmation_params
+        params.require(:rsvp).permit(:attending)
     end
 
     def bus_info_params

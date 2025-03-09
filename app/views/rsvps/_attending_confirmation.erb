@@ -1,0 +1,21 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <%= form_with(model: @rsvp) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <div class="block is-size-5">Will you be attending?</div>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <%= button_tag(type: 'submit', class: 'button', name: 'rsvp[attending]', value: true, data: { action: 'click->form#submitForm' }) do %>
+            Excitedly yes
+          <% end %>
+        </p>
+        <p class="control">
+          <%= button_tag(type: 'submit', class: 'button', name: 'rsvp[attending]', value: false, data: { action: 'click->form#submitForm' }) do %>
+            Regretfully no
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>

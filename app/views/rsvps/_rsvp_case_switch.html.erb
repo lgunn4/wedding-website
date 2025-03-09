@@ -7,6 +7,8 @@
 <%= render 'enter_guests', rsvp: @rsvp, step: @step %>
 <% when "enter_email" %>
 <%= render 'enter_email', rsvp: @rsvp, step: @step %>
+<% when "attending_confirmation" %>
+<%= render 'attending_confirmation', rsvp: @rsvp, step: @step %>
 <% when "enter_bus_info" %>
 <%= render 'enter_bus_info', rsvp: @rsvp, step: @step %>
 <% when "enter_songs" %>
