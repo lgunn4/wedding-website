@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "/admin", to: "admin#index"
   namespace :admin do
+    get "incomplete", to: "incomplete#index"
     resources :rsvps, only: [:show, :destroy]
   end
 end

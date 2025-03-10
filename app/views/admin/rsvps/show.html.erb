@@ -15,7 +15,7 @@
 
 <p><strong>ID:</strong> <%= @rsvp.id %></p>
 <p><strong>Email:</strong> <%= @rsvp.email %></p>
-<p><strong>Bus Required:</strong> <%= @rsvp.bus_required ? 'Yes' : 'No' %></p>
+<p><strong>Bus Required:</strong> <%= @rsvp.bus_required ? '✅' : '❌' %></p>
 <p><strong>Complete:</strong> <%= @rsvp.complete? ? '✅' : '❌' %></p>
 <p><strong>Created At:</strong> <%= @rsvp.created_at.strftime("%B %d, %Y %H:%M") %></p>
 

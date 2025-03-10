@@ -1,0 +1,24 @@
+<h2>Incomplete RSVPs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>RSVP</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Attending?</th>
+      <th>Bus? </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @guests.each do |guest| %>
+      <tr>
+        <td><%= link_to "show", admin_rsvp_path(guest.rsvp_id) %></td>
+        <td><%= guest.first_name %></td>
+        <td><%= guest.last_name %></td>
+        <td><%= guest.rsvp.attending ? '✅' : '❌' %></td>
+        <td><%= guest.rsvp.bus_required ? '✅' : '❌'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

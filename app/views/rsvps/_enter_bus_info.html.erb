@@ -5,19 +5,16 @@
       <%= form.hidden_field :step, value: @step %>
       <div class="block is-size-5">Will you be requiring 🚌 bus transportation?</div>
       <div class="block is-size-6">Uber/Lyft/Taxi's will not come to the venue. We will be providing bus transportation to and from Superstore on Oxford and Hyde Park. If you require transportation please let us know (if unsure check yes)</div>
-      <div class="field">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= form.select :bus_required, 
-              [['Yes, I will be requiring transportation', true], ['No, I have made arrangements', false]], 
-              {include_blank: 'Please select a value'}, 
-              {class: 'select is-fullwidth', required: true, id: 'bus_required_select'} %>
-          </div>
-        </div>
-      </div>
       <div class="field is-grouped is-grouped-centered">
         <p class="control">
-          <%= form.submit "Next", class: 'button', data: { action: 'click->form#submitForm' } %>
+          <%= button_tag(type: 'submit', class: 'button', name: 'rsvp[bus_required]', value: true, data: { action: 'click->form#submitForm' }) do %>
+            Yes, I will be requiring transportation
+          <% end %>
+        </p>
+        <p class="control">
+          <%= button_tag(type: 'submit', class: 'button', name: 'rsvp[bus_required]', value: false, data: { action: 'click->form#submitForm' }) do %>
+            No, I have made arrangements
+          <% end %>
         </p>
       </div>
     <% end %>

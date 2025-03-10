@@ -54,6 +54,7 @@ class RsvpsController < ApplicationController
     def redirect_to_not_attending
         unless @rsvp.complete?
             @rsvp.complete!
+            RsvpMailer.alert_email(@rsvp).deliver_later
         end
 
         session[:show_modal] = true

@@ -12,13 +12,15 @@
                 <li><%= guest.first_name %> <%= guest.last_name %></li>
               <% end %>
             </ul>
+            <p><strong>Attending:</strong><%= @rsvp.attending? %></p>
+            <p><strong>Bus required?:</strong><%= @rsvp.bus_required? %></p>
             <p><strong>Song Requests:</strong></p>
             <ul>
               <% @rsvp.song_requests.each do |song| %>
                 <li><%= song.title %> - <%= song.artist %></li>
               <% end %>
             </ul>
-            <p>The total number of Guests is now: <%= @number_of_guests %></p>
+            <p>The total number of attenging guests is now: <%= @number_of_guests %></p>
           </div>
         </div>
       </div>
