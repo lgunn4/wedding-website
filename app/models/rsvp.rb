@@ -7,7 +7,7 @@ class Rsvp < ApplicationRecord
     scope :complete , -> { where(complete: true) }
     scope :attending_song_requests, -> { where(attending: true, complete: true).includes(:song_requests).flat_map(&:song_requests) }
     scope :attending_guests, -> { where(attending: true, complete: true).includes(:guests).flat_map(&:guests) }
-    scope :attending_bus_guests, -> { where(attending: true, bus_required: true).includes(:guests).flat_map(&:guests) }
+    scope :attending_bus_guests, -> { where(attending: true, complete: true, bus_required: true).includes(:guests).flat_map(&:guests) }
 
 
     def number_of_guests 

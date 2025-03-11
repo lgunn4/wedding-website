@@ -1,0 +1,45 @@
+<section id="rsvp-form" class="section">
+  <div class="container is-max-desktop">
+    <h1 class="title has-text-centered">RSVP</h1>
+    <div class = "has-text-centered">
+    <div class="block is-size-5"><strong>Confirm the details of your RSVP and hit 'Submit'</strong></div>
+    <div class = "block">
+      <div class="is-size-5"><strong>Email:</strong></div>
+      <%= @rsvp.email %>
+    </div>
+    <div class = "block">
+      <div class="is-size-5"><strong>Guests:</strong></div>
+      <ul>
+        <% @rsvp.guests.each do |guest| %>
+        <li><%= guest.first_name %> <%= guest.last_name %></li>
+        <% end %>
+      <ul>
+    </div>
+    <div class="block">
+          <div class="is-size-5"><strong>Bus Transportation:</strong></div>
+          <%= @rsvp.bus_required? ? '✅' : '❌' %>
+
+    </div>
+    <div class = "block">
+      <div class="is-size-5"><strong>Song Requests:</strong></div>
+      <% if @rsvp.song_requests.empty? %>
+        <div class="is-size-5">🕺 I can get down to anything</div>
+      <% end %>
+      <ul>
+        <% @rsvp.song_requests.each do |song_request| %>
+        <li><%= song_request.title %> -  <%= song_request.artist %></li>
+        <% end %>
+      <ul>
+    </div>
+
+
+    <%= form_with(model: @rsvp, data: { controller: "song-request" }) do |form| %>
+      <%= form.hidden_field :step, value: @step %>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <%= form.submit "Submit", class: 'button', data: { action: 'click->form#submitForm' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>

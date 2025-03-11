@@ -9,7 +9,8 @@ class RsvpsController < ApplicationController
         "enter_guests",
         "attending_confirmation",
         "enter_bus_info",
-        "enter_songs"
+        "enter_songs",
+        "submit"
     ]
 
     def new

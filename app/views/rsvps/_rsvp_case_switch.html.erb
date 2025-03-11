@@ -13,4 +13,6 @@
 <%= render 'enter_bus_info', rsvp: @rsvp, step: @step %>
 <% when "enter_songs" %>
 <%= render 'enter_songs', rsvp: @rsvp, step: @step %>
+<% when "submit" %>
+<%= render 'submit', rsvp: @rsvp, step: @step %>
 <% end %>

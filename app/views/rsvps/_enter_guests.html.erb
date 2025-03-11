@@ -6,7 +6,9 @@
       <%= form.hidden_field :number_of_guests, value: @rsvp.guests.any? ? @rsvp.guests.count : 1, data: {'guest-form-target': 'number' } %>
       <div class="columns">
         <div class="column is-three-quarters">
-          <div class="block is-size-5">Enter the names of each guest you are filling this RSVP out for (click + to add another person)</div>
+          <div class="block is-size-5">Enter the names of each guest you are filling this RSVP out for</div>
+          <div class="block is-size-5"><strong>(click + to add another person)</strong></div>
+
         </div>
         <div class="column">
           <div class="is-flex is-justify-content-flex-end">
