@@ -1,15 +1,14 @@
 <%= render 'shared/navbar' %>
-<section class="hero hero-custom" id="top"></section>
-<section class="section pb-0">
+<section class="hero hero-custom is-flex is-align-items-center is-justify-content-center" id="top">
+  <div class="has-text-centered">
+    <%= button_to '✍️ RSVP', "/rsvps/new", class: "button is-large", method: :get %>
+  </div>
+</section><section class="section pb-0">
   <div class="container has-text-centered">
     <div class="block title is-1 ">Logan and Bri</div>
     <div class="block is-size-4">June 14, 2025</div>
     <div class="block is-size-5">#ItHasJustBriGunn</div>
-    <% if @debug_rsvp %>
       <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
-    <% else %>
-      <a href="https://van.loganandbri.love"><button class="button">🚐 Van Blog</button></a>
-    <% end %>
     <% if false %>
       <div id="rsvp-button" class="block">
         <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
@@ -100,9 +99,7 @@
       </div>
       <div class="section has-text-centered pt-0">
         <div class="block is-size-5 has-text-centered is-snell">Your presence is the best gift we can hope to receive. If you'd like to contribute to our dreams, a monetary gift would be cherished as we adventure and build our life together.</div>
-        <% if @debug_rsvp %>
-          <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
-        <% end %>
+        <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
       </div>
     </div>
   </div>
