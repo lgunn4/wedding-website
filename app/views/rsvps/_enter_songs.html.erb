@@ -32,10 +32,10 @@
                 <div class="field is-horizontal">
                   <div class="field-body">
                     <div class="field">
-                      <input type="text" name="rsvp[<%= index %>][title]" class="input" placeholder="Song Title" value=<%= song_request.title %> required>
+                      <%= form.text_field "#{index}[title]", class: "input", placeholder: "Song Title", value: song_request.title, required: true %>
                     </div>
                     <div class="field">
-                      <input type="text" name="rsvp[<%= index %>][artist]" class="input" placeholder="Artist Name" value=<%= song_request.artist %> required>
+                      <%= form.text_field "#{index}[artist]", class: "input", placeholder: "Artist Name", value: song_request.artist, required: true %>
                     </div>
                   </div>
                 </div>
