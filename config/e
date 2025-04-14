@@ -1,0 +1,5 @@
+# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+secret_key_base: 3b54199db55e8832029413126425348540c1dfbdd075187c4d4250306b47c1ac8fbf3ccc7f63b4989cbfec551738cc8b0b702b606a88b70e17ec3e16b63c3>
+mailer:
+    email: "loganandbrigunn@gmail.com"
+    password: "mgyi xvpp ywna kepi"

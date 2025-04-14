@@ -9,4 +9,9 @@ class RsvpMailerPreview < ActionMailer::Preview
     @rsvp = Rsvp.last
     RsvpMailer.alert_email(@rsvp)
   end
+
+  def incomplete_rsvp_email
+    @rsvp = Rsvp.last
+    RsvpMailer.incomplete_rsvp_email(@rsvp)
+  end
 end

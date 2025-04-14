@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .box img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero {
+      text-align: center;
+      font-size: 3em;
+      font-weight: bold;
+      font-family: "Snell Roundhand", cursive;
+      margin: 0;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content-container">
+      <div class="content">
+        <div class="hero">
+          <p>Don't Forget!</p>
+        </div>
+        <div class="content">
+          <p>Logan and Bri here 👋</p>
+          <p>We noticed that haven't completed the RSVP to our wedding, and we would love to have you join us on this special day.</p>
+          <p>Please take a moment to make sure everything looks good <a href=<%= @rsvp.current_step_url%>>here</a> so we can ensure we have everything ready for you.</p>
+          <p>We hope to see you there!</p>
+          <p>Sincerely, Logan and Bri</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

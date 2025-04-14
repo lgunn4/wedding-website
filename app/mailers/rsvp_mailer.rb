@@ -11,4 +11,10 @@ class RsvpMailer < ApplicationMailer
     @attending_guests = Rsvp.attending_guests.count
     mail(to: User.all.map(&:email), subject: 'A new RSVP has been submitted')
   end
+
+  def incomplete_rsvp_email(rsvp)
+    @rsvp = rsvp
+
+    mail(to: @rsvp.email, subject: "💒 Don't forget to submit your RSVP!")
+  end
 end

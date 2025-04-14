@@ -107,4 +107,6 @@ Rails.application.configure do
   config.hosts << "backup.loganandbri.love"
   config.hosts << "10.0.0.50:9109"
   config.hosts << "192.53.121.67:3003"
+
+  config.base_path = "https://loganandbri.love"
 end

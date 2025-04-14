@@ -86,4 +86,6 @@ Rails.application.configure do
   config.action_mailer.logger = ActiveSupport::Logger.new(STDOUT)
   config.action_mailer.logger.level = Logger::DEBUG
   config.hosts << "code-rails.loft-cloud.com"
+
+  config.base_path = "https://code-rails.loft-cloud.com"
 end

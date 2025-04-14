@@ -4,21 +4,12 @@ class RsvpsController < ApplicationController
     before_action :fetch_rsvp, only: [:new, :create, :edit, :update]
     before_action :set_first_step
 
-    STEPS = [
-        "enter_email", 
-        "enter_guests",
-        "attending_confirmation",
-        "enter_bus_info",
-        "enter_songs",
-        "submit"
-    ]
-
     def new
-        @step = STEPS[0]
+        @step = Rsvp::STEPS[0]
     end
 
     def create
-        @step = STEPS[0]
+        @step = Rsvp::STEPS[0]
         update
     end
 
@@ -43,13 +34,14 @@ class RsvpsController < ApplicationController
             @song_requests.each(&:save!)
         end
 
+        @rsvp.update!(step: @step)
         redirect_to_next_step
     end
 
     private
 
     def set_first_step 
-        @first_step = STEPS.find_index(@step) == 1
+        @first_step = Rsvp::STEPS.find_index(@step) == 1
     end
 
     def redirect_to_not_attending
@@ -84,10 +76,10 @@ class RsvpsController < ApplicationController
     end
 
     def next_step
-        index = STEPS.find_index(@step)
-        return nil if index == STEPS.count - 1
+        index = Rsvp::STEPS.find_index(@step)
+        return nil if index == Rsvp::STEPS.count - 1
 
-        return STEPS[index + 1]
+        return Rsvp::STEPS[index + 1]
     end
 
     def fetch_rsvp
