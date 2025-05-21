@@ -37,6 +37,7 @@
     <tr>
       <th>Title</th>
       <th>Artist</th>
+      <th>Requested by WHO??</th>
     </tr>
   </thead>
   <tbody>
@@ -44,6 +45,7 @@
       <tr>
         <td><%= song_request.title %></td>
         <td><%= song_request.artist %></td>
+        <td><%= song_request.rsvp.guests.map(&:first_name).join(", ") %></td>
       </tr>
     <% end %>
   </tbody>
