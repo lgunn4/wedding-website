@@ -1,27 +1,11 @@
 <%= render 'shared/navbar' %>
 <section class="hero hero-custom is-flex is-align-items-center is-justify-content-center" id="top">
-  <div class="has-text-centered">
-    <%= button_to '✍️ RSVP', "/rsvps/new", class: "button is-large", method: :get %>
-  </div>
 </section><section class="section pb-0">
   <div class="container has-text-centered">
     <div class="block title is-1 ">Logan and Bri</div>
     <div class="block is-size-4">June 14, 2025</div>
     <div class="block is-size-5">#ItHasJustBriGunn</div>
-      <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
-    <% if false %>
-      <div id="rsvp-button" class="block">
-        <button class="button" data-controller="scroll", data-action="scroll#rsvp">RSVP</button>
-      </div>
-    <% end %>
-    <section class="section has-text-centered">
-      <div class="block is-size-4 is-size-5-mobile" id="countdown-timer">
-        <%= content_tag(:div, "Loading...", data: {
-      controller: "countdown",
-      countdown_target: "countdown",
-    }) %>
-      </div>
-    </section>
+    <div class="block"></div>
   </div>
 </section>
 <div class="wildflower-horizontal" id="our-story"></div>
@@ -96,10 +80,6 @@
             <div class="block">We kindly ask for a device free ceremony.</div>
           </div>
         </div>
-      </div>
-      <div class="section has-text-centered pt-0">
-        <div class="block is-size-5 has-text-centered is-snell">Your presence is the best gift we can hope to receive. If you'd like to contribute to our dreams, a monetary gift would be cherished as we adventure and build our life together.</div>
-        <%= button_to '✍️ RSVP', "/rsvps/new", class: "button", method: :get %>
       </div>
     </div>
   </div>
